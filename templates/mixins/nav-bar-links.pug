@@ -1,0 +1,9 @@
+mixin nav-bar-links
+  each link in navLinks
+    li: a(href=link.href)= link.label
+  if user
+    if user.canAccessKeystone
+      li: a(href='/keystone') Admin
+    li: a(href='/signout') Log Out
+  if !user
+    li: a(href='/signin') Log In

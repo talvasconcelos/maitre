@@ -1,0 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,200)
+
+html
+  text-rendering: optimizeLegibility
+  font-family: 'Raleway', sans-serif
+
+body
+  -webkit-font-smoothing: antialiased
+
+.container-nav
+  max-width: 1200px
+  width: 90%
+  margin-left: auto
+  margin-right: auto
+
+.section--title
+  margin: 5em 0
+
+
+// HERO
+.hero
+  position: relative
+  height: 60vh
+  width: 100%
+
+  .hero--bg
+    display: flex
+    align-items: center
+    height: 100%
+    background:
+      image: linear-gradient(to bottom, rgba($primary-color,.5) 0%,rgba($primary-color,.5) 100%), url('/images/hero/rest_hero.jpg')
+      position: center
+      size: cover
+
+
+    .hero--content
+      color: #fff
+      transform: translateY(-15%)
+
+      .select
+        display: inline-block
+        font-weight: 400
+        background-color: initial
+        padding: 0
+        border: 0
+        border-radius: 0
+        width: auto
+
+      .btn-flat
+        color: #fff
+        background-color: rgba(#fff, 0.15)
+        -webkit-tap-highlight-color: rgba(#fff, 0.35)
+        &:hover
+          background-color: rgba(#fff, 0.35)
+
+// FEATURED
+.card-title--index
+  background: linear-gradient(to bottom, rgba($primary-color-dark,0) 0%, rgba($primary-color-dark,.5) 50%, rgba($primary-color-dark,.75) 100%)
+
+  width: 100%
+
+// RESTAURANT
+.hero-rest--bg
+  position: relative
+  overflow: hidden
+  min-height: 380px
+  line-height: 0
+  height: auto
+  background:
+    position: center
+    size: cover
+
+.parallax
+  height: 380px
+
+.restaurant--content
+  transform: translateY(-20%)
+
+  .card
+
+    .header
+      line-height: 100px
+
+.section--map
+  margin: 2em -20px
+
+  #map
+    height: 15em
+    width: 100%
+
+input.qty
+  font-size: 1.5rem
+
+// CARDS FORM
+.card-center
+  position: absolute
+  top: 50%
+  left: 0
+  right: 0
+  transform: translateY(-47%)
+  width: 90%
+  margin: 0 auto
+
+  @media #{$medium-and-up}
+    width: 35%
+    min-width: 350px
+// FLASH MESSAGES
+.card-flash
+  margin-bottom: 2em
+  &.info
+    @extend .blue.lighten-4
+  &.success
+    @extend .green.lighten-4
+  &.warning
+    @extend .amber.lighten-4
+  &.danger
+    @extend .red.lighten-4

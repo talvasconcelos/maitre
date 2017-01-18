@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:200,300)
+
+html
+  text-rendering: optimizeLegibility
+  font-family: 'Raleway', sans-serif
+
+
+body
+  height: 3000px
+  -webkit-font-smoothing: antialiased
+
+
+
+// NavBar //
+
+nav
+  background-color: $brand-color
+
+// Hero Section //
+
+section.hero
+  position: relative
+
+  .pitch
+    width: 100%
+    height: 75vh
+    background: linear-gradient(to left, color('yellow', 'darken-2'), color('orange', 'darken-1'))
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    .logo
+      //transition: all .5s
+      //&:hover
+        filter: drop-shadow(3px 3px 15px $off-black)
+
+    .tag
+      position: relative
+
+    small
+      position: absolute
+      bottom: 0
+      margin: 1em
+
+// About Section //
+section:not(.hero)
+  padding-top: 4em
+  padding-bottom: 4em
+
+// Divider Section //
+section.divider01
+  padding-bottom: 4em
+  background:
+    image: url(../img/divider_01.jpg)
+    position: center
+    size: cover

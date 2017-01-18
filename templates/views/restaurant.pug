@@ -1,0 +1,154 @@
+extends ../layouts/default
+
+block content
+	//-.hero-rest--bg(style='background-image: url(' + rest.image.url + ')')
+	.parallax-container
+		.parallax
+			img(src= rest.image.url)
+	.container
+		.restaurant--content
+			form(method='post', action='/reserve').card
+				.card-content
+					span.card-title.header= rest.name
+					.divider
+					.row.section
+						.col.s12.m4
+							.center
+								i.small.material-icons restaurant
+								p.thin.grey-text Tipo de Cozinha
+								p= rest.cuisines
+						.col.s12.m4
+							.center
+								i.small.material-icons location_city
+								p.thin.grey-text Localização
+								p= rest.location.city
+						.col.s12.m4
+							.center
+								i.small.material-icons monetization_on
+								p.thin.grey-text Preço para 2
+								p= '€' + rest.cost_for_two
+					.section
+						if rest.location.geo
+							.section--map.
+								<div id="map"></div>
+								<script>
+									function initMap() {
+										var uluru = {lat: #{rest.location.geo[1]}, lng: #{rest.location.geo[0]}};
+										var map = new google.maps.Map(document.getElementById('map'), {
+											zoom: 16,
+											center: uluru
+										});
+										var marker = new google.maps.Marker({
+											position: uluru,
+											animation: google.maps.Animation.BOUNCE,
+											map: map
+										});
+									}
+								</script>
+								<script async defer src="https://maps.googleapis.com/maps/api/js?key=#{process.env.GOOGLE_BROWSER_KEY}&callback=initMap"></script>
+
+					.section
+						span.card-title Descrição
+						div= rest.description
+
+					if rest.singular
+						.divider
+						.section
+							if rest.singular.chef
+								P= 'Chef: ' + rest.singular.chef
+							if rest.singular.awards
+								p= 'Prémios: ' + rest.singular.awards
+							if rest.singular.signatureDish
+								p= 'Prato recomendado: ' + rest.singular.signatureDish
+					.section
+						.row
+							.col.s12
+								input(type='hidden', name='action', value='reserve')
+								//-input(type='hidden', name='target', value=form.target)
+								
+								.input-field.col.s12
+									p.center-align Quantas pessoas
+									select
+										option(value='2') 2 Pessoas
+										option(value='1') 1 Pessoa
+										option(value='3') 3 Pessoas
+										option(value='4') 4 Pessoas
+										option(value='5') 5 Pessoas
+										option(value='6') 6 Pessoas
+										option(value='7') 7 Pessoas
+										option(value='8') 8 Pessoas
+										option(value='9') 9 Pessoas
+										option(value='10') 10 Pessoas
+
+								.input-field.col.s12
+									p.center-align Data
+									select
+										each day in dates
+											option(value= '#{day}')= day
+								.input-field.col.s12
+									p.center-align Horario
+									select
+										option(value='12') 12:00
+										option(value='13') 13:00
+										option(value='14') 14:00
+										option(value='15') 15:00
+										option(value='16') 16:00
+										option(value='17') 17:00
+										option(value='18') 18:00
+										option(value='19') 19:00
+										option(value='20') 20:00
+										option(value='21') 21:00
+										option(value='22') 22:00
+										option(value='23') 23:00
+										
+
+
+				.card-action
+					button(class='btn-flat', type='submit') Reservar
+block js
+	script.
+		$(document).ready(function(){
+			$('.parallax').parallax();
+
+			$('#qtyAdd').click(function(e){
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        fieldName = $(this).attr('field');
+		        // Get its current value
+		        var currentVal = parseInt($('input[name='+fieldName+']').val());
+		        // If is not undefined
+		        if (!isNaN(currentVal)) {
+		            // Increment
+		            $('input[name='+fieldName+']').val(currentVal + 1);
+		        } else {
+		            // Otherwise put a 0 there
+		            $('input[name='+fieldName+']').val(2);
+		        }
+		    });
+
+		    // This button will decrement the value till 0
+		    $('#qtyRemove').click(function(e) {
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        fieldName = $(this).attr('field');
+		        // Get its current value
+		        var currentVal = parseInt($('input[name='+fieldName+']').val());
+		        // If it isn't undefined or its greater than 0
+		        if (!isNaN(currentVal) && currentVal > 1) {
+		            // Decrement one
+		            $('input[name='+fieldName+']').val(currentVal - 1);
+		        } else {
+		            // Otherwise put a 0 there
+		            $('input[name='+fieldName+']').val(1);
+		        }
+		    });
+
+		    $('.datepicker').pickadate({
+			    selectMonths: false, // Creates a dropdown to control month
+			    min: Date.now() // Creates a dropdown of 15 years to control year
+			});
+
+			$('select').material_select();
+		});

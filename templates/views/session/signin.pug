@@ -1,0 +1,54 @@
+extends ../../layouts/default
+
+block flash-messages
+	//- intentionally blank
+block content
+	.container
+		.card.card-center
+			.card-content
+				span.card-title Entrar
+				.section.container
+					form(method='post', action='/signin')
+						input(type='hidden', name='action', value='signin')
+						input(type='hidden', name='target', value=form.target)
+						if form.error
+							div!= form.error.message || form.error
+							if form.error.errors && !_.isEmpty(form.error.errors)
+								each error, key in form.error.errors
+									div!= error.msg
+						.row
+							.col.s12.m10.offset-m1.input-field
+								input(id='email', type='email', class='validate', name='email', value=locals.form ? locals.form.email : null)
+								label(for='email') Email
+							.col.s12.m10.offset-m1.input-field
+								input(id='password', type='password', class='validate', name='password', value='')
+								label(for='password') Password
+
+						.section.row
+							.col.s12.m10.offset-m1
+								+flash-messages(messages)
+							.col.s12.m10.offset-m1
+								button.btn(type='submit') Entrar
+						.divider
+						.row
+								.col.m6
+									.section: small
+										|Não tem conta?&nbsp
+										a(href='/join') Registar
+
+								//-.col.m6.right-align
+									.section: small
+										a(href='/forgot-password') Esqueci-me da password
+
+	//-.container-xs
+		.page-intro
+			h4 Entrar
+			+flash-messages(messages)
+		.page-content
+			+auth-forms({ modal: true, initial: 'signin' })
+
+//-block js
+	script.
+		jQuery(function($) {
+			$('.auth-form').find('.form-control').eq(0).focus().select();
+		});
