@@ -1,0 +1,19 @@
+extends ../layouts/default
+
+block content	
+	p= reserveSubmited
+	#modal1.modal
+		.modal-content
+			if reserveSubmitted
+				h4 title
+				p hjhjfhgjfghfjghfjgh
+
+		.modal-footer
+			a(href='#!') Fechar
+
+block js
+	script.
+		$(document).ready(function(){
+		    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+		    $('#modal1').modal('open');
+		});

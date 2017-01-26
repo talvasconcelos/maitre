@@ -18,7 +18,10 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.dates = [];
+	locals.dates = {
+		pretty: [],
+		ugly: []
+	};
 	// locals.filters = {
 	// 	rest: req.params.rest,
 	// };
@@ -46,10 +49,11 @@ exports = module.exports = function (req, res) {
 		for (var i = 0; i < range; i++) {
 			var x = moment();
 			x.add(i, 'day');
+			locals.dates.ugly.push(x.format('L'));
 			if (i < 2) {
-			 locals.dates.push(moment(x).calendar(today));
+			 locals.dates.pretty.push(moment(x).calendar(today));
 			} else {
-				locals.dates.push(moment(x).format('dddd, DD MMMM'));
+				locals.dates.pretty.push(moment(x).format('dddd, DD MMMM'));
 			};
 		}
 		next();

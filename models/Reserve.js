@@ -6,19 +6,24 @@ var Types = keystone.Field.Types;
  * =============
  */
  var Reserve = new keystone.List('Reserve', {
- 	nocreate: true,
- 	noedit: true,
+    nocreate: true,
+    noedit: true,
  });
 
  Reserve.add({
-   createdAt: { type: Date, default: Date.now },
-   user: { type: Types.Relationship, ref: 'User', index: true },
-   party: {type: Types.Number},
-   restaurant: { type: Types.Relationship, ref: 'Restaurant', index: true },
-   response: { type: Boolean },
-   endedAt: { type: Date, default: '' }
+    user: { type: Types.Relationship, ref: 'User', index: true },
+}, 'Details', {   
+    party_size: {type: Types.Number},
+    date: {type: Date},
+    restaurant: { type: Types.Relationship, ref: 'Restaurant', index: true },
+}, 'State', {
+    createdAt: { type: Date, default: Date.now },   
+    submitted: {type: Boolean},
+    response: { type: Boolean },
+    confirmed: {type: Boolean},
+    endedAt: { type: Date, default: '' }
  });
 
  Reserve.defaultSort = '-createdAt';
- Reserve.defaultColumns = 'user, restaurant, createdAt';
+ Reserve.defaultColumns = 'user, restaurant, createdAt, response';
  Reserve.register();

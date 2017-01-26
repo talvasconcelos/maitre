@@ -6201,6 +6201,11 @@ html {
 body {
   -webkit-font-smoothing: antialiased; }
 
+.btn-flat {
+  border: 1px solid; }
+
+/*.card-action > a
+  @extend .btn-flat*/
 .container-nav {
   max-width: 1200px;
   width: 90%;
