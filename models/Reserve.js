@@ -13,16 +13,23 @@ var Types = keystone.Field.Types;
  Reserve.add({
     user: { type: Types.Relationship, ref: 'User', index: true },
 }, 'Details', {   
+    createdAt: { type: Date, default: Date.now },    
+    endedAt: { type: Date },
     party_size: {type: Types.Number},
     date: {type: Date},
     restaurant: { type: Types.Relationship, ref: 'Restaurant', index: true },
 }, 'State', {
-    createdAt: { type: Date, default: Date.now },   
-    submitted: {type: Boolean},
-    response: { type: Boolean },
-    confirmed: {type: Boolean},
-    endedAt: { type: Date, default: '' }
+    state: { type: Types.Select, options: 'null, sent, confirmed, denied, ended', noedit: true },
+    restContact: {type: Date},
+    restResponse: {
+        confirm: {type: Types.Boolean},
+        date: {type: Date}
+    },
+    
  });
+
+
+
 
  Reserve.defaultSort = '-createdAt';
  Reserve.defaultColumns = 'user, restaurant, createdAt, response';
