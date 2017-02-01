@@ -26,6 +26,9 @@
     "gulp-shell": "^0.5.0",
     "gulp-watch": "^4.3.5"
   },
+  "engines": {
+    "node": "7.4.0"
+  },
   "scripts": {
     "lint": "eslint .",
     "start": "nodemon keystone.js"

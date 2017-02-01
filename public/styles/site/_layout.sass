@@ -79,7 +79,7 @@ body
 .parallax
   height: 380px
 
-.restaurant--content
+.restaurant--content, .post--content
   transform: translateY(-20%)
 
   .card
@@ -121,3 +121,8 @@ input.qty
     @extend .amber.lighten-4
   &.danger
     @extend .red.lighten-4
+
+article
+  .card-image
+    max-height: 400px
+    overflow: hidden

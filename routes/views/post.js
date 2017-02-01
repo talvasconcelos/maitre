@@ -16,7 +16,6 @@ exports = module.exports = function (req, res) {
 
 	// Load the current post
 	view.on('init', function (next) {
-
 		var q = keystone.list('Post').model.findOne({
 			state: 'published',
 			slug: locals.filters.post,
