@@ -1,6 +1,8 @@
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').config();
+};
 
 // Require keystone
 var keystone = require('keystone');
@@ -26,6 +28,8 @@ keystone.init({
 	'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
+
+	'port': process.env.PORT || 3000
 
 });
 
