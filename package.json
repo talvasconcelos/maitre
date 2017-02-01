@@ -31,6 +31,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "nodemon keystone.js"
+    "start": "nodemon keystone.js",
+    "prod": "node keystone.js"
   }
 }
