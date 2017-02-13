@@ -20,7 +20,6 @@ var Types = keystone.Field.Types;
     restaurant: { type: Types.Relationship, ref: 'Restaurant', index: true },
 }, 'State', {
     state: { type: Types.Select, options: 'null, sent, confirmed, denied, ended', noedit: true },
-    restContact: {type: Date},
     restResponse: {
         confirm: {type: Types.Boolean},
         date: {type: Date}

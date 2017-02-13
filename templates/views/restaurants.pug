@@ -1,0 +1,20 @@
+extends ../layouts/default
+
+block content
+	section.restaurants
+		.container
+			.section--title
+				h3= filters.city
+			.row
+				.col.s12.cards-container
+					each rest in data.restaurants
+						article
+							.card
+								.card-image
+									img(src= rest._.image.fit())
+									//- img(src='https://source.unsplash.com/category/food/')
+									span.card-title.card-title--index= rest.name
+								.card-content
+									p: small= 'Cozinha: ' + rest.cuisines
+								.card-action
+									a(href='/rest/' + rest.key) Ver Mais

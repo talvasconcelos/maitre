@@ -52,6 +52,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/rest/:rest', routes.views.restaurant);
+	app.get('/restaurants/:city', routes.views.restaurants);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
@@ -66,6 +67,7 @@ exports = module.exports = function (app) {
 	app.get('/signout', routes.views.session.signout);
 	app.all('/forgot-password', routes.views.session['forgot-password']);
 	app.all('/reset-password/:key', routes.views.session['reset-password']);
+	app.all('/dashboard', middleware.requireUser, routes.views.dashboard);
 
 	// Reserves
 	app.all('/reserve', middleware.requireUser, routes.views.reserve);

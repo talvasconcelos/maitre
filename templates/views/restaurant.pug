@@ -21,7 +21,10 @@ block content
 							.center
 								i.small.material-icons location_city
 								p.thin.grey-text Localização
-								p= rest.location.city
+								if rest.location.suburb
+									if rest.location.suburb != rest.location.state
+										p= rest.location.suburb
+								p= rest.location.state
 						.col.s12.m4
 							.center
 								i.small.material-icons monetization_on
@@ -36,7 +39,8 @@ block content
 										var uluru = {lat: #{rest.location.geo[1]}, lng: #{rest.location.geo[0]}};
 										var map = new google.maps.Map(document.getElementById('map'), {
 											zoom: 16,
-											center: uluru
+											center: uluru,
+											scrollwheel:  false
 										});
 										var marker = new google.maps.Marker({
 											position: uluru,
@@ -66,6 +70,7 @@ block content
 								input(type='hidden', name='action', value='reserve')
 								input(type='hidden', name='restaurant', value=rest.id)
 								input(type='hidden', name='restName', value=rest.name)
+								input(type='hidden', name='restEmail', value=rest.contact.email)
 								
 								.input-field.col.s12
 									p.center-align Quantas pessoas

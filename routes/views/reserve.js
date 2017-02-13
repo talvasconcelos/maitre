@@ -45,7 +45,7 @@ exports = module.exports = function (req, res) {
 			} else {
 				//newPost.notifyAdmins();
 				//req.flash('success', 'Your post has been added' + ((newPost.state == 'draft') ? ' and will appear on the site once it\'s been approved' : '') + '.');
-				return res.redirect('/');
+				return res.redirect('/dashboard#reserves');
 			}
 			next();
 		});
@@ -60,7 +60,8 @@ exports = module.exports = function (req, res) {
 			party: locals.formData.party_size,
 			day: locals.formData.day,
 			hour: locals.formData.hour,
-			reserveID: newReserve.id
+			reserveID: newReserve.id,
+			restEmail: locals.formData.restEmail
 		}, {
 			apiKey: process.env.MAILGUN_API_KEY,
 		    domain: process.env.MAILGUN_DOMAIN,
@@ -80,6 +81,13 @@ exports = module.exports = function (req, res) {
 		});
 	});
 
+	view.on('post'), {action: 'restreply'}, function (next) {
+		var newReserve = new Reserve.model({}),
+
+		updater = newReserve.getUpdateHandler(req, res, {
+			errorMessage: 'There was an error creating your new post:'
+		});
+	};
 
 	// On POST requests, add the Enquiry item to the database
 	/*view.on('post', { action: 'reserve' }, function (next) {

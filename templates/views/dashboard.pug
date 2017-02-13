@@ -1,0 +1,54 @@
+extends ../layouts/default
+
+block content
+    .dashboard.container
+        #perfil
+            h4 Editar perfil
+            form
+                input(type='text')
+                label Nome  
+
+        #reserves
+            h4 As suas reservas
+            if data.reserv
+                ul.collapsible.popout(data-collapsible="accordion")
+                    each r in data.reserv
+                        li
+                            .collapsible-header
+                                span.title
+                                    strong #{r.restaurant.name}
+                                    | , #{r._.date.moment().fromNow()}
+                                .right                 
+                                    case r.state
+                                        when 'null'
+                                            i.material-icons error
+                                        when 'sent'
+                                            i.material-icons call_made
+                                        when 'confirmed'
+                                            i.material-icons done
+                                        when 'denied'
+                                            i.material-icons remove
+                                        when 'ended'
+                                            i.material-icons done_all
+                                        default
+                                            i.material-icons error
+
+                            .collapsible-body
+                                p Reserva para #{r.party_size} pessoas no #{r.restaurant.name}, dia #{r._.date.moment().calendar()}.
+                                    br
+                                    | Criada a: #{r._.createdAt.format('L')}
+                                    br
+                                    if r.restResponse.date
+                                        | Respondida a: #{r._.restResponse.date.format('dd MMM [as] h:mm')}
+                                        if r.resrResponse.confirm
+                                            .green-text e esta confirmada.
+                                    else
+                                        | O restaurante ainda nao respondeu.
+            else
+                p Nao tem reservas.
+
+block js
+    script.
+        $(document).ready(function() {
+            
+        });

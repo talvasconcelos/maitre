@@ -43,8 +43,8 @@ html
 
 		//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 		//- ... or completely change this header to suit your design.
-		.navbar-fixed
-			nav#header
+		header.navbar-fixed
+			nav.nav-extended#header
 				.nav-wrapper.container-nav
 					a.brand-logo(href='/') Maître
 					a.button-collapse(href='#', data-activates='mobile-nav')
@@ -53,9 +53,15 @@ html
 						+nav-bar-links()
 					ul.side-nav#mobile-nav
 						+nav-bar-links
+				if locals.section == 'dashboard'
+					.nav-content
+						ul.tabs.tabs-transparent
+							li.tab: a(href='#perfil') Perfil
+							li.tab: a(href='#reserves') Reservas
+							li.tab.disabled: a(href='#restaurants') Restaurantes
 
 		//- BODY
-		#body
+		main#body
 
 			//- NOTE:
 			//- There is no .container wrapping class around body blocks to allow more flexibility in design.
@@ -74,10 +80,33 @@ html
 
 
 		//- FOOTER
-		.container: #footer
+		
+		footer#footer.page-footer
+			.container
+				.row
+					.col.l6.s12
+						h5.white-text Maitre
+						p.grey-text.text-lighten-4 Faca a sua reserva.
+					.col.l4.offset-l2.s12
+						h5.white-text Links
+						ul
+							+nav-bar-links(class = 'grey-text text-lighten-3')
+							//- li
+							//- 	a.grey-text.text-lighten-3(href='#!') Link 1
+							//- li
+							//- 	a.grey-text.text-lighten-3(href='#!') Link 2
+							//- li
+							//- 	a.grey-text.text-lighten-3(href='#!') Link 3
+							//- li
+							//- 	a.grey-text.text-lighten-3(href='#!') Link 4
+			.footer-copyright
+				.container
+					| © 2017 Maitre
+					a.grey-text.text-lighten-4.right(href='#!') More Links
 
-			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			//- p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+
+		//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
+		//- p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
 
 
 		//- JAVASCRIPT
@@ -110,7 +139,6 @@ html
 			closeOnClick: true
 		});
 		head();
-
 
 		function head() {
 			var off = $('.hero').height();

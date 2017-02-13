@@ -17,17 +17,10 @@ Restaurant.add({
 		name: { type: String, initial: true, required: true, index: true },
 		phone: { type: Types.Number}
 	},
-	description: {type: Types.Textarea, initial: true },
+	description: {type: Types.Html, wysiwyg: true, height: 150},
 	cost_for_two: {type: Number, initial: true},
 	cuisines: {type: String, initial: true},
-	/*location: {
-		city: { type: String, initial: true, required: true, index: true },
-		address: { type: String, initial: true, required: true, index: true },
-		coord: {
-			long: { type: Types.Number},
-			lat: { type: Types.Number}
-		}
-	},*/
+	feature: {type: Types.Boolean, index: true},
 	location: {type: Types.Location, enableMapsAPI:true, defaults: { country: 'Portugal' }},//{type: Types.Location, enableMapsAPI:true},
 	//thumb: {},
 	//avatar: {},

@@ -3,9 +3,11 @@
 html
   text-rendering: optimizeLegibility
   font-family: 'Raleway', sans-serif
+  height: 100%
 
 body
   -webkit-font-smoothing: antialiased
+  //min-height: 100%
 
 .btn-flat
   border: 1px solid
@@ -21,6 +23,60 @@ body
 
 .section--title
   margin: 5em 0
+
+.dashboard
+  margin-top: $navbar-height
+
+
+@mixin column-count($ct) 
+  -webkit-column-count: $ct
+  -moz-column-count: $ct
+  column-count: $ct
+
+
+.cards-container 
+  column-break-inside: avoid
+  .card 
+    display: inline-block
+    overflow: visible
+  
+
+
+@media #{$small-and-down} 
+  .cards-container 
+    @include column-count(1)
+  
+
+@media #{$medium-and-up} 
+  .cards-container 
+    @include column-count(1)
+  
+
+@media #{$large-and-up} 
+  .cards-container 
+    @include column-count(2)
+
+// NAV
+header
+  .nav-extended
+    height: auto
+
+  .nav-content
+    //position: relative
+    line-height: normal
+
+  .tabs-transparent
+    background-color: transparent
+
+  .tabs > .tab > a
+      color: rgba(white, 0.7)
+
+      &.active
+        color: white
+
+      &.disabled
+        color: rgba($secondary-color, 0.7)
+
 
 
 // HERO
@@ -91,25 +147,31 @@ body
   margin: 2em -20px
 
   #map
-    height: 15em
+    height: 250px
     width: 100%
+    img
+      width: 100%
 
 input.qty
   font-size: 1.5rem
 
 // CARDS FORM
 .card-center
-  position: absolute
-  top: 50%
-  left: 0
-  right: 0
-  transform: translateY(-47%)
-  width: 90%
-  margin: 0 auto
+  display: flex
+  align-items: center
+  justify-content: center
+  //position: absolute
+  //top: 50%
+  //left: 0
+  //right: 0
+  //transform: translateY(-47%)
+  //width: 90%
+  margin: 2em auto
 
   @media #{$medium-and-up}
-    width: 35%
+    width: 45%
     min-width: 350px
+    margin-top: 4em
 // FLASH MESSAGES
 .card-flash
   margin-bottom: 2em
@@ -126,3 +188,4 @@ article
   .card-image
     max-height: 400px
     overflow: hidden
+

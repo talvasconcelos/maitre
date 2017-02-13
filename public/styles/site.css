@@ -2059,6 +2059,14 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column; }
+
+main {
+  flex: 1 0 auto; }
+
 ul {
   list-style-type: none; }
   ul.browser-default {
@@ -2623,7 +2631,7 @@ input[type=range] + .thumb {
 
 .container {
   margin: 0 auto;
-  max-width: 768px;
+  max-width: 960px;
   width: 90%; }
   .container > blockquote {
     margin: 0 2em; }
@@ -3189,10 +3197,10 @@ html {
       font-size: 16px; } }
   @media only screen and (min-width: 992px) {
     html {
-      font-size: 18px; } }
+      font-size: 16px; } }
   @media only screen and (min-width: 1200px) {
     html {
-      font-size: 20px; } }
+      font-size: 18px; } }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 200;
@@ -6196,7 +6204,8 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 
 html {
   text-rendering: optimizeLegibility;
-  font-family: 'Raleway', sans-serif; }
+  font-family: 'Raleway', sans-serif;
+  height: 100%; }
 
 body {
   -webkit-font-smoothing: antialiased; }
@@ -6214,6 +6223,49 @@ body {
 
 .section--title {
   margin: 5em 0; }
+
+.dashboard {
+  margin-top: 64px; }
+
+.cards-container {
+  column-break-inside: avoid; }
+  .cards-container .card {
+    display: inline-block;
+    overflow: visible; }
+
+@media only screen and (max-width: 600px) {
+  .cards-container {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1; } }
+
+@media only screen and (min-width: 601px) {
+  .cards-container {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1; } }
+
+@media only screen and (min-width: 993px) {
+  .cards-container {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2; } }
+
+header .nav-extended {
+  height: auto; }
+
+header .nav-content {
+  line-height: normal; }
+
+header .tabs-transparent {
+  background-color: transparent; }
+
+header .tabs > .tab > a {
+  color: rgba(255, 255, 255, 0.7); }
+  header .tabs > .tab > a.active {
+    color: white; }
+  header .tabs > .tab > a.disabled {
+    color: rgba(98, 0, 234, 0.7); }
 
 .hero {
   position: relative;
@@ -6268,24 +6320,24 @@ body {
 .section--map {
   margin: 2em -20px; }
   .section--map #map {
-    height: 15em;
+    height: 250px;
     width: 100%; }
+    .section--map #map img {
+      width: 100%; }
 
 input.qty {
   font-size: 1.5rem; }
 
 .card-center {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  transform: translateY(-47%);
-  width: 90%;
-  margin: 0 auto; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2em auto; }
   @media only screen and (min-width: 601px) {
     .card-center {
-      width: 35%;
-      min-width: 350px; } }
+      width: 45%;
+      min-width: 350px;
+      margin-top: 4em; } }
 
 .card-flash {
   margin-bottom: 2em; }

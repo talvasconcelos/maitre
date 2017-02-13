@@ -22,7 +22,8 @@ var paths = {
 gulp.task('browser-sync', ['nodemon'], function() {
     browserSync.init({
         proxy: 'localhost:3000',
-        port: 8000
+        port: 8000,
+        //tunnel: true
     });
 });
 
