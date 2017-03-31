@@ -21,7 +21,7 @@ block content
 						br
 						| #may1reboot
 						
-					.btn-large.cta(onclick='mailChimpPop()') Learn more
+					a(href='#!', onclick="mailChimpPop(); return false;").btn-large.cta Learn more
 					small subscribe to get all the news
 	else
 		.hero
@@ -76,14 +76,6 @@ block content
 		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
 			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
 block js
-	.
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-		<script type="text/javascript">
-			function mailChimpPop() {
-				require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us8.list-manage.com","uuid":"c566a73727fc13ffedabf7712","lid":"efb9e56b93"}) })
-			}
-		</script>
-		
 	script.
 		$(document).ready(function() {
 			$('.select').material_select();
