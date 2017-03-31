@@ -10,6 +10,7 @@ exports = module.exports = function (req, res) {
 	locals.data = {
 		reserv: [],
 	};
+	locals.formData = req.user
 
 	// Load User Data
 	// Load Reserves

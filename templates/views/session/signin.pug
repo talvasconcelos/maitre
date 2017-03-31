@@ -17,17 +17,17 @@ block content
 								each error, key in form.error.errors
 									div!= error.msg
 						.row
-							.col.s12.m10.offset-m1.input-field
+							.col.s12.input-field
 								input(id='email', type='email', class='validate', name='email', value=locals.form ? locals.form.email : null)
 								label(for='email') Email
-							.col.s12.m10.offset-m1.input-field
+							.col.s12.input-field
 								input(id='password', type='password', class='validate', name='password', value='')
 								label(for='password') Password
 
 						.section.row
-							.col.s12.m10.offset-m1
+							.col.s12
 								+flash-messages(messages)
-							.col.s12.m10.offset-m1
+							.col.s12
 								button.btn(type='submit') Entrar
 						.divider
 						.row

@@ -13,11 +13,16 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true },
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: false },
+	isRest: { type: Boolean, label: 'Is Restaurant Manager', index: false },
 });
 
 // Provide access to Keystone
 User.schema.virtual('canAccessKeystone').get(function () {
 	return this.isAdmin;
+});
+
+User.schema.virtual('isRestaurant').get(function () {
+	return this.isRest;
 });
 
 

@@ -18,23 +18,23 @@ block content
 								each error, key in form.error.errors
 									div!= error.msg
 						.row
-							.col.s12.m10.offset-m1.input-field
+							.col.s12.input-field
 								input(id='firstname', type='text', class='validate', name='firstname', value=form.firstname)
 								label(for='firstname') Nome
-							.col.s12.m10.offset-m1.input-field
+							.col.s12.input-field
 								input(id='lastname', type='text', class='validate', name='lastname', value=form.lastname)
 								label(for='lastname') Apelido
-							.col.s12.m10.offset-m1.input-field
+							.col.s12.input-field
 								input(id='email', type='email', class='validate', name='email', value=form.email)
 								label(for='email') Email
-							.col.s12.m10.offset-m1.input-field
+							.col.s12.input-field
 								input(id='password', type='password', class='validate', name='password', value=form.password)
 								label(for='password') Password
 
 						.section.row
-							.col.s12.m10.offset-m1
+							.col.s12
 								+flash-messages(messages)
-							.col.s12.m10.offset-m1
+							.col.s12
 								button.btn(type='submit') Registar
 						.divider
 						.row

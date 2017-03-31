@@ -2,11 +2,40 @@ extends ../layouts/default
 
 block content
     .dashboard.container
-        #perfil
-            h4 Editar perfil
-            form
-                input(type='text')
-                label Nome  
+        .section#perfil
+          h4 Olá #{user.name.full}
+          form.section
+            .row
+              .col.s12.m6
+                h5 Informação Pessoal
+                .section
+                  .input-field
+                    input(id='name_first', type='text', class='validate', name='name.first', value=formData.name.first)
+                    label(for='name_first') Nome
+                  .input-field
+                    input(id='name_last', type='text', class='validate', name='name.last', value=formData.name.last)
+                    label(for='name_last') Apelido
+                  .input-field
+                    input(id='email', type='email', class='validate', name='email', value=formData.email)
+                    label(for='email') Email    
+              .col.s12.m6
+                h5 Formas de Pagamento
+                .section
+            //.row
+              .col.s12
+                h5 Informação Pública
+                p Informação que podemos passar ao restaurante
+                .input-field
+                  input(value)
+              
+            .row
+              .col.s12
+                button.btn(type='submit') Guardar
+                
+          .section
+            button.btn-flat.waves-effect(type='button') Mudar Password
+                  
+              
 
         #reserves
             h4 As suas reservas

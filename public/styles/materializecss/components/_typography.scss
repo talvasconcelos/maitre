@@ -4,26 +4,20 @@ a {
 }
 
 html{
-  line-height: 1.5;
-
-  @media only screen and (min-width: 0) {
-    font-size: 16px;
-  }
-
-  @media only screen and (min-width: $medium-screen) {
-    font-size: 16px;
-  }
-
-  @media only screen and (min-width: $large-screen) {
-    font-size: 18px;
-  }
-
-  font-family: "Raleway", sans-serif;
-  font-weight: 300;
-  color: $off-black;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
 }
+
+body {
+  font-size: calc(100% + 0.3vw);
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  color: $off-black;
+  line-height: 1.55;
+}
+
 h1, h2, h3, h4, h5, h6 {
-	font-weight: 200;
+	font-weight: 300;
 	line-height: 1.1;
 }
 

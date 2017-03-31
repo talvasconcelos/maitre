@@ -1,38 +1,60 @@
-extends ../layouts/default
+extends ../layouts/default 
 
 block content
+	- var time = new Date()
+	- var may = new Date('2017-05-01T00:00:01')
+	- var ok = time.getTime() - may.getTime()
 	- var x = _.uniqBy(restaurants, 'location.state')
-	.hero
-		.hero--bg
-			.hero--content.center.container
-				h3
-					|Encontre a sua mesa
-					br
-					|em
-					select.browser-default.select
-						each city in x
-							if city.location.state != 'Lisboa'
-								option(value = 'Lisboa') Lisboa
-								option(value= city.location.state)= city.location.state
-				a#reserv.btn-flat(href='/restaurants/Lisboa') Reservar
+	
+	if ok < 0
+		.may1reboot-overlay
+			.container
+				.pitch
+					h4 Maître
+					
+					h1 the app is 
+						br
+						| almost 
+						span finished
+						
+					h4 launching on may 1
+						br
+						| #may1reboot
+						
+					.btn-large.cta(onclick='mailChimpPop()') Learn more
+					small subscribe to get all the news
+	else
+		.hero
+			.hero--bg
+				.hero--content.center.container
+					h3
+						|Encontre a sua mesa
+						br
+						|em
+						select.browser-default.select
+							each city in x
+								if city.location.state != 'Lisboa'
+									option(value = 'Lisboa') Lisboa
+									option(value= city.location.state)= city.location.state
+					a#reserv.btn-flat(href='/restaurants/Lisboa') Reservar
 
-	section.restaurants
-		.container
-			.section--title
-				h3 Destaques
-			.row
-				each rest in restaurants
-					if rest.feature
-						.col.m6
-							.card.small
-								.card-image
-									img(src= rest.image.url)
-									//- img(src='https://source.unsplash.com/category/food/')
-									span.card-title.card-title--index= rest.name
-								.card-content
-									p: small= 'Cozinha: ' + rest.cuisines
-								.card-action
-									a(href='rest/' + rest.key) Ver Mais
+		section.restaurants
+			.container
+				.section--title
+					h3 Destaques
+				.row
+					each rest in restaurants
+						if rest.feature
+							.col.m6
+								.card.small
+									.card-image
+										img(src= rest.image.url)
+										//- img(src='https://source.unsplash.com/category/food/')
+										span.card-title.card-title--index= rest.name
+									.card-content
+										p: small= 'Cozinha: ' + rest.cuisines
+									.card-action
+										a(href='rest/' + rest.key) Ver Mais
 	//-.container: .jumbotron
 		img(src='/images/logo.svg', width='160')
 		h1 Welcome
@@ -54,6 +76,14 @@ block content
 		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
 			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
 block js
+	.
+		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
+		<script type="text/javascript">
+			function mailChimpPop() {
+				require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us8.list-manage.com","uuid":"c566a73727fc13ffedabf7712","lid":"efb9e56b93"}) })
+			}
+		</script>
+		
 	script.
 		$(document).ready(function() {
 			$('.select').material_select();
@@ -71,4 +101,3 @@ block js
 			}
 
 		});
-
