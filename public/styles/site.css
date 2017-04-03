@@ -6198,9 +6198,12 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em; } }
 
+#PopupSignupForm_3 {
+  z-index: 1001; }
+
 .may1reboot-overlay {
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   overflow: hidden;
   top: 0;
   left: 0;
@@ -6227,6 +6230,18 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
     .may1reboot-overlay .pitch .cta {
       background: tomato;
       margin: 2em 0 0.75em; }
+
+#countdown {
+  margin-top: 1em; }
+  #countdown .wrapper {
+    color: #f5f5f5;
+    display: inline-block; }
+    #countdown .wrapper:not(:last-child) {
+      margin-right: 1em; }
+    #countdown .wrapper span {
+      display: block;
+      color: inherit;
+      font-size: calc(125% + 0.5vw); }
 
 .btn-flat {
   padding: 0; }
