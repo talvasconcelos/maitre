@@ -16,7 +16,7 @@ keystone.init({
 	'name': 'maitre-api',
 	'brand': 'Maitre',
 
-	'sass': 'public',
+	//'sass': 'public',
 	'static': ['public', 'app_client/public'],
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
