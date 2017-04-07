@@ -10,7 +10,7 @@ exports = module.exports = function (req, res) {
 	locals.data = {
 		reserv: [],
 	};
-	locals.formData = req.user
+	//locals.formData = req.user
 
 	// Load User Data
 	// Load Reserves
@@ -26,6 +26,44 @@ exports = module.exports = function (req, res) {
 			next();
 		});
 	});
+
+	view.on('post', { action: 'update' }, function (next) {
+		req.user.getUpdateHandler(req).process(req.body, {
+			fields: 'name, email'
+		}, function(err) {
+			if (err) {
+				console.log(err)
+				return next();
+			}
+			req.flash('success', 'Your changes have been saved.');
+			return next();
+
+		})
+	})
+
+	view.on('post', { action: 'updatePassword' }, function (next) {
+		if (!req.body.password || !req.body.password_confirm) {
+			req.flash('error', 'Introduza uma password.');
+			return next();
+		}
+
+		if (!(req.body.password === req.body.password_confirm)) {
+			req.flash('error', 'As passwords não são iguais.');
+			return next();
+		}
+		
+		req.user.getUpdateHandler(req).process(req.body, {
+			fields: 'password'
+		}, function(err) {
+			if (err) {
+				console.log(err)
+				return next();
+			}
+			req.flash('success', 'Your changes have been saved.');
+			return next();
+
+		})
+	})
 
 
 	// Render the view

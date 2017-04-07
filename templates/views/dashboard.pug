@@ -1,39 +1,52 @@
 extends ../layouts/default
 
+block flash-messages
+
 block content
     .dashboard.container
         .section#perfil
           h4 Olá #{user.name.full}
-          form.section
+          form.section(method='post')
+            input(type='hidden', name='action', value='update')
             .row
+              .col.s12
+                +flash-messages(messages)
               .col.s12.m6
                 h5 Informação Pessoal
                 .section
                   .input-field
-                    input(id='name_first', type='text', class='validate', name='name.first', value=formData.name.first)
+                    input(id='name_first', type='text', class='validate', name='name.first', value=user.name.first)
                     label(for='name_first') Nome
                   .input-field
-                    input(id='name_last', type='text', class='validate', name='name.last', value=formData.name.last)
+                    input(id='name_last', type='text', class='validate', name='name.last', value=user.name.last)
                     label(for='name_last') Apelido
                   .input-field
-                    input(id='email', type='email', class='validate', name='email', value=formData.email)
+                    input(id='email', type='email', class='validate', name='email', value=user.email)
                     label(for='email') Email    
               .col.s12.m6
-                h5 Formas de Pagamento
-                .section
-            //.row
-              .col.s12
                 h5 Informação Pública
-                p Informação que podemos passar ao restaurante
                 .input-field
                   input(value)
-              
+            
             .row
-              .col.s12
+              .col.s12.m6
                 button.btn(type='submit') Guardar
                 
-          .section
-            button.btn-flat.waves-effect(type='button') Mudar Password
+          form.section(method='post')
+            input(type='hidden', name='action', value='updatePassword')
+            .row
+              .col.s12.m6
+                h5 Password
+                .section
+                  .input-field
+                    input(id='password', type='password', name='password')
+                    label(for='password') Nova password
+                  .input-field
+                    input(id='password_confirm', type='password', name='password_confirm')
+                    label(for='password_confirm') Confirmar password
+              .col.s12
+                button.btn-flat.waves-effect(type='submit') Mudar Password
+        .section.row
                   
               
 
