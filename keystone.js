@@ -29,7 +29,7 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
-	//'port': process.env.PORT || 3000
+	'port': process.env.PORT || 3000
 
 });
 
@@ -41,11 +41,12 @@ keystone.import('models');
 // for each request) should be added to ./routes/middleware.js
 keystone.set('locals', {
 	_: require('lodash'),
+	moment: require('moment'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
-	editable: keystone.content.editable,
-	react: path.resolve('app_client/index.html')
+	editable: keystone.content.editable
 });
+
 
 keystone.set('cloudinary config', process.env.CLOUDINARY_URL);
 

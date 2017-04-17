@@ -1,0 +1,30 @@
+extends layouts/base
+
+block content
+  .container
+    h5 A Maître tem uma reserva para o #{restname}.
+    p O utilizador #{user} fez uma reserva na Maître para o dia #{date.getDate()}, para #{attendees} pessoas às #{date.toLocaleTimeString()}.
+    p: strong Detalhes da reserva:
+    ul
+      li
+        | Nome: #{user}
+      li
+        | Data: #{date.toLocaleDateString()}
+      li
+        | Pessoas: #{attendees}
+      li
+        | ID da Reserva: #{id}
+    p Aguardamos a sua resposta.
+    p Host: #{host} | Link: #{responselink}
+    a.btn.confirm(href='http://beta.maitre.pt/') Confirmar
+    a.btn.reject(href!= responselink) Rejeitar
+    
+            
+    
+  
+  //- p #{user}
+  //- p #{restname}
+  //- p #{attendees}
+  //- p #{date}
+  //- p #{id}
+  //- p #{responselink}

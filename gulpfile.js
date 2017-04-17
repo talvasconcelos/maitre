@@ -40,7 +40,7 @@ gulp.task('browser-sync', ['nodemon'], function() {
 
 gulp.task('sass', function(){
 	gulp.src(paths.style.all)
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass(/*{outputStyle: 'compressed'}*/).on('error', sass.logError))
 		.pipe(gulp.dest(paths.style.output))
 		.pipe(browserSync.stream());
 });
@@ -48,9 +48,9 @@ gulp.task('sass', function(){
 
 
 gulp.task('nodemon', function (cb) {
-	
+
 	var started = false;
-	
+
 	return nodemon({
 		script: 'keystone.js'
 	}).on('start', function () {
@@ -58,8 +58,8 @@ gulp.task('nodemon', function (cb) {
 		// thanks @matthisk
 		if (!started) {
 			cb();
-			started = true; 
-		} 
+			started = true;
+		}
 	});
 });
 

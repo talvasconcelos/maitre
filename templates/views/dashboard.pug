@@ -57,9 +57,8 @@ block content
                     each r in data.reserv
                         li
                             .collapsible-header
-                                span.title
-                                    strong #{r.restaurant.name}
-                                    | , #{r._.date.moment().fromNow()}
+                                span.title #{r.restaurant.name}                                    
+                                | , #{r._.date.moment().fromNow()}
                                 .right                 
                                     case r.state
                                         when 'null'
@@ -69,7 +68,7 @@ block content
                                         when 'confirmed'
                                             i.material-icons done
                                         when 'denied'
-                                            i.material-icons remove
+                                            i.material-icons cancel
                                         when 'ended'
                                             i.material-icons done_all
                                         default
