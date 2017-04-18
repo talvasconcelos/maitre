@@ -1,0 +1,61 @@
+extends ../layouts/default
+
+block flash-messages
+	//- intentionally blank
+block content
+	.container
+		.card.card-center
+			.card-content
+				span.card-title Reserva Maître
+				if !found
+					.row
+						.col.s12
+							+flash-messages(messages)
+				else
+					p Temos uma reserva para o #{found.restaurant.name}.
+						br
+						| Reserva feita em nome de #{found.user.name.full}, para #{found.party_size} pessoas, #{moment(found.date).format('dddd')}, #{moment(found.date).format('DD')} de #{moment(found.date).format('MMMM')} às #{moment(found.date).format('LT')}.   
+					.section.container
+						h6 Resumo da reserva
+						.section
+							ul.collection
+								li.collection-item
+									small
+										| Nome:
+										.secondary-content #{found.user.name.full}
+								li.collection-item
+									small
+										| Pessoas:
+										.secondary-content #{found.party_size}
+								li.collection-item
+									small
+										| Data:
+										.secondary-content #{moment(found.date).format('ddd, DD MMMM')}
+								li.collection-item
+									small
+										| Hora:
+										.secondary-content #{moment(found.date).format('LT')}
+					if submited
+						.row
+							.col.s12
+								+flash-messages(messages)
+								.center
+									a.btn(href='/') Sair
+					else
+						p Confirme ou rejeite a reserva.
+						.section.row.center
+							.col.s12
+								form(method='post')
+									input(type='hidden', name='action', value='restreply.confirm')
+									.col.s6
+										button.btn-large.green(type='submit'): i.material-icons check_circle
+										p.center-align.grey-text: small Confirmar
+												
+								form(method='post')
+									input(type='hidden', name='action', value='restreply.reject')
+									.col.s6
+										button.btn-large.red(type='submit'): i.material-icons cancel
+										p.center-align.grey-text: small Rejeitar
+						
+
+	

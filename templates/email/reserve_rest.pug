@@ -16,8 +16,8 @@ block content
         | ID da Reserva: #{id}
     p Aguardamos a sua resposta.
     p Host: #{host} | Link: #{responselink}
-    a.btn.confirm(href='http://beta.maitre.pt/') Confirmar
-    a.btn.reject(href!= responselink) Rejeitar
+    a.btn.confirm(href= responselink) Confirmar
+    a.btn.reject(href= responselink) Rejeitar
     
             
     

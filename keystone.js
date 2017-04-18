@@ -44,8 +44,14 @@ keystone.set('locals', {
 	moment: require('moment'),
 	env: keystone.get('env'),
 	utils: keystone.utils,
-	editable: keystone.content.editable
+	editable: keystone.content.editable,
+	host: (function () {
+		if (keystone.get('env') === 'staging') return 'http://whispering-ravine-32550.herokuapp.com';
+		if (keystone.get('env') === 'production') return 'http://www.maitre.pt';
+		return (keystone.get('host') || 'http://localhost') + ':' + (keystone.get('port') || '8000');
+	})()
 });
+
 
 
 keystone.set('cloudinary config', process.env.CLOUDINARY_URL);

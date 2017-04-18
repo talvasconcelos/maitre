@@ -19,7 +19,7 @@ exports = module.exports = function (req, res) {
 		keystone.list('Reserve').model.find()
 		.where('user', locals.user.id)
 		.populate('restaurant')
-		.sort('-date')
+		.sort('-createdAt')
 		.exec(function(err, result) {
 			if(err) return res.err(err);
 			locals.data.reserv = result;
@@ -51,7 +51,7 @@ exports = module.exports = function (req, res) {
 			req.flash('error', 'As passwords não são iguais.');
 			return next();
 		}
-		
+
 		req.user.getUpdateHandler(req).process(req.body, {
 			fields: 'password'
 		}, function(err) {

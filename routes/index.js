@@ -71,6 +71,7 @@ exports = module.exports = function (app) {
 
 	// Reserves
 	app.all('/reserve', middleware.requireUser, routes.views.reserve);
+	app.all('/restreply/:key', routes.views.restreply);
 
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
