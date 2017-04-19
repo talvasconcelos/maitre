@@ -6349,6 +6349,8 @@ header .tabs > .tab > a {
   transform: translateY(-20%); }
   .restaurant--content .card .header, .post--content .card .header {
     line-height: 100px; }
+  .restaurant--content .card .rest-description p, .post--content .card .rest-description p {
+    margin-bottom: 10px; }
 
 .section--map {
   margin: 2em -20px; }

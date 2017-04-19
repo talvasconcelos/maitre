@@ -4,7 +4,6 @@ block content
 	- var time = new Date()
 	- var may = new Date('2017-05-01T00:00:01')
 	- var ok = time.getTime() - may.getTime()
-	- var x = _.uniqBy(restaurants, 'location.state')
 	
 	if ok > 0
 		.may1reboot-overlay
@@ -46,10 +45,10 @@ block content
 						br
 						|em
 						select.browser-default.select
-							each city in x
-								if city.location.state != 'Lisboa'
+							each city in cidades
+								if city != 'Lisboa'
 									option(value = 'Lisboa') Lisboa
-									option(value= city.location.state)= city.location.state
+									option(value= city)= city
 					a#reserv.btn-flat(href='/restaurants/Lisboa') Procurar
 
 		section.restaurants
@@ -57,18 +56,17 @@ block content
 				.section--title
 					h3 Destaques
 				.row
-					each rest in restaurants
-						if rest.feature
-							.col.m6
-								.card.small
-									.card-image
-										img(src= rest.image.url)
-										//- img(src='https://source.unsplash.com/category/food/')
-										span.card-title.card-title--index= rest.name
-									.card-content
-										p: small= 'Cozinha: ' + rest.cuisines
-									.card-action
-										a(href='rest/' + rest.key) Ver Mais
+					each rest in _.sampleSize(_.shuffle(restaurants), 4)
+						.col.m6
+							.card.small
+								.card-image
+									img(src= rest.image.url)
+									//- img(src='https://source.unsplash.com/category/food/')
+									span.card-title.card-title--index= rest.name
+								.card-content
+									p: small= 'Cozinha: ' + rest.cuisines
+								.card-action
+									a(href='rest/' + rest.key) Ver Mais
 	//-.container: .jumbotron
 		img(src='/images/logo.svg', width='160')
 		h1 Welcome
