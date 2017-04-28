@@ -1,6 +1,45 @@
 extends layouts/base
 
 block content
-  .container
-    p hello world
-    
+  table.body(style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background-color: #f6f6f6;', width='100%', bgcolor='#f6f6f6')
+    tr
+      td(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top;", valign='top')
+      td.container(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top; display: block; margin: 0 auto !important; max-width: 580px; padding: 10px; width: 580px;", width='580', valign='top')
+        .content(style='box-sizing: border-box; display: block; margin: 0 auto; max-width: 580px; padding: 10px;')
+          span.preheader(style='color: transparent; display: none; height: 0; max-height: 0; max-width: 0; opacity: 0; overflow: hidden; mso-hide: all; visibility: hidden; width: 0;') A sua reserva para o #{restname} est&aacute; confirmada.
+          .header(style='box-sizing: border-box; margin-bottom: 30px; margin-top: 20px; width: 100%;')
+            table(style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;', width='100%')
+              tr
+                td.align-center(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top; text-align: center;", valign='top', align='center')
+                  a(href='http://www.maitre.pt', style='box-sizing: border-box; color: #1d083b; text-decoration: underline;')
+                    img(src='http://res.cloudinary.com/duteihi26/image/upload/v1493291914/maitre_klgfe7.png', height='50', alt='Maître', style='-ms-interpolation-mode: bicubic; max-width: 100%;')
+          table.main(style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border: 1px solid #e9e9e9; border-radius: 3px;', width='100%')
+            tr
+              td.wrapper(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top; padding: 30px;", valign='top')
+                table(style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;', width='100%')
+                  tr
+                    td(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top;", valign='top')
+                      h2(style='color: #111111 !important; font-weight: 400; line-height: 1.4em; margin: 0; margin-bottom: 30px; font-size: 24px;') Ol&aacute; #{user}.
+                      p(style='font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px; list-style-type: none;')
+                        | O #{restname} acabou de confirmar a sua reserva para #{attendees} pessoas &agrave;s #{date.toLocaleTimeString()} no dia #{date.getDate()}.
+                      table.divider-wrapper(style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;', width='100%')
+                        tr
+                          td.divider-spacer(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top; padding: 20px 0;", valign='top')
+                            table.divider.divider-(cellpadding='0', cellspacing='0', style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;', width='100%')
+                              tr
+                                td(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; vertical-align: top; font-size: 0; border-top: 1px solid #ccc; line-height: 0; height: 1px; margin: 0; padding: 0;", valign='top')
+                      p(style='font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px; list-style-type: none;')
+                        strong Detalhes da sua reserva:
+                      ul(style='font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px; list-style-type: none;')
+                        li(style='list-style-position: inside; margin-left: 5px;') Nome: #{user}
+                        li(style='list-style-position: inside; margin-left: 5px;') Data: #{date.toLocaleDateString()}
+                        li(style='list-style-position: inside; margin-left: 5px;') Pessoas: #{attendees}
+                      table.divider-wrapper(style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;', width='100%')
+                        tr
+                          td.divider-spacer(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top; padding: 20px 0;", valign='top')
+                            table.divider.divider-(cellpadding='0', cellspacing='0', style='box-sizing: border-box; border-collapse: separate !important; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;', width='100%')
+                              tr
+                                td(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; vertical-align: top; font-size: 0; border-top: 1px solid #ccc; line-height: 0; height: 1px; margin: 0; padding: 0;", valign='top')
+                      p(style='font-size: 14px; font-weight: normal; margin: 0; margin-bottom: 15px; list-style-type: none;')
+                        | Da parte da Ma&icirc;tre desejamos-lhe uma &oacute;ptima refei&ccedil;&atilde;o e obrigado pela prefer&ecirc;ncia.
+      td(style="box-sizing: border-box; font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto; font-size: 14px; vertical-align: top;", valign='top')

@@ -10,13 +10,13 @@ html
 		meta(charset="utf-8")
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
-			
+
 		meta(property='og:url', content='http://beta.maitre.pt')
 		meta(property='og:type', content='website')
 		meta(property='og:title', content='The App is almost finished. Launching on #May1Reboot.')
 		meta(property='og:description', content='If you live in Portugal or just visiting, Maître has a curated list of restaurants you can book! Subscribe to learn more.')
 		meta(property='og:image', content='http://i.imgur.com/5Ch676K.png')
-			
+
 		meta(name='twitter:card', content='summary_large_image')
 		meta(name='twitter:site', content='@maitreApp')
 
@@ -56,6 +56,7 @@ html
 			nav.nav-extended#header
 				.nav-wrapper.container-nav
 					a.brand-logo(href='/') Maître
+						span.beta  [beta]
 					a.button-collapse(href='#', data-activates='mobile-nav')
 						i.material-icons menu
 					ul.right.hide-on-med-and-down
@@ -89,7 +90,7 @@ html
 
 
 		//- FOOTER
-		
+
 		footer#footer.page-footer
 			.container
 				.row
@@ -137,7 +138,7 @@ html
 		script(src='/js/jquery/jquery-2.1.4.min.js')
 		script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js')
 		script(src='/js/vendor/headroom.min.js')
-		
+
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone
 		if user && user.canAccessKeystone

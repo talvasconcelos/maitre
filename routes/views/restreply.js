@@ -16,7 +16,7 @@ exports = module.exports = function(req, res) {
       .exec(function(err, reserve) {
         if (err) return next(err);
         if (!reserve) {
-          req.flash('error', 'Pedimos desculpa mas essa reserva já não está activa.');
+          req.flash('error', 'Pedimos desculpa mas esta reserva já não está activa.');
         }
         locals.found = reserve;
         next();

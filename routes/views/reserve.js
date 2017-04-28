@@ -12,9 +12,12 @@ exports = module.exports = function (req, res) {
 	locals.filters = {
 		rest: req.params.rest,
 	};
+
 	locals.formData = req.body || {};
 	locals.reserveSubmitted = false;
-	locals.date = moment(locals.formData.day, 'DD-MM-YYYY').hours(locals.formData.hour);
+	var h = moment(locals.formData.hour).hours()
+	var m = moment(locals.formData.hour).minutes()
+	locals.date = moment(locals.formData.day, 'DD-MM-YYYY').hours(h).minutes(m);
 
 	view.on('post', {action: 'reserve'}, function (next) {
 		// handle form

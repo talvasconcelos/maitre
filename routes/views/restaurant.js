@@ -20,16 +20,17 @@ exports = module.exports = function (req, res) {
 	// Set locals
 	locals.dates = {
 		pretty: [],
-		ugly: []
+		ugly: [],
+    intervals: []
 	};
 	// locals.filters = {
 	// 	rest: req.params.rest,
 	// };
-	
+
 
 	// Load the current restaurant
 	/*view.query('restaurants', keystone.list('Restaurant').model.findOne({
-			key: 
+			key:
 		})
 	);*/
 	view.on('init', function (next) {
@@ -56,6 +57,15 @@ exports = module.exports = function (req, res) {
 				locals.dates.pretty.push(moment(x).format('dddd, DD MMMM'));
 			};
 		}
+    var start = new Date;
+    start.setHours(11,30)
+    var temp = [];
+    for (var i = 0; i < 24; i++) {
+      temp[i] = moment(start)
+      start = moment(start).add(30, 'minutes')
+    }
+    console.log(temp)
+    locals.dates.intervals = temp
 		next();
 	});
 

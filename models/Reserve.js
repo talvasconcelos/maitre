@@ -54,17 +54,17 @@ Reserve.schema.methods.notifyRestaurant = function(info, callback) {
       attendees: reserve.party_size,
       date: reserve.date,
       id: reserve.id,
-      responselink: 'http://localhost:8000/restreply/' + reserve.reservLink
+      responselink: 'http://beta.maitre.pt/restreply/' + reserve.reservLink
     }, {
       apiKey: process.env.MAILGUN_API_KEY,
       domain: process.env.MAILGUN_DOMAIN,
+      //to: info.restemail,
       to: 'talvasconcelos@gmail.com',
-      //to: process.env.NODE_ENV !== 'production' ? 'talvasconcelos@gmail.com' : info.restmail,
       from: {
         name: 'Maître',
         email: 'info@maitre.pt'
       },
-      subject: 'Reserva Maître',
+      subject: 'Reserva Maître (id:' + reserve.id + ')',
       'o:tracking-clicks': 'no'
     }, function (err, result) {
       err ? console.error('🤕 Mailgun test failed with error:\n', err) : console.log('📬 Successfully sent Mailgun email to\n' + info.restemail + '\nwith result:\n', result);
@@ -77,17 +77,19 @@ Reserve.schema.methods.notifyUser = function(info, callback) {
   new Email('templates/email/reserve_confirm.pug', { transport: 'mailgun' })
     .send({
       username: info.user,
-      restname: info.restaurant
+      restname: info.restaurant,
+      attendees: reserve.party_size,
+      date: reserve.date
     }, {
       apiKey: process.env.MAILGUN_API_KEY,
       domain: process.env.MAILGUN_DOMAIN,
-      to: 'talvasconcelos@gmail.com',
+      to: info.usermail,
       //to: process.env.NODE_ENV !== 'production' ? 'talvasconcelos@gmail.com' : info.usermail,
       from: {
         name: 'Maître',
         email: 'info@maitre.pt'
       },
-      subject: 'Reserva Maître',
+      subject: 'Reserva Maître (id:' + reserve.id + ')',
       'o:tracking-clicks': 'no'
     }, function (err, result) {
       err ? console.error('🤕 Mailgun test failed with error:\n', err) : console.log('📬 Successfully sent Mailgun email with result:\n', result);
