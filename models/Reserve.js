@@ -58,8 +58,8 @@ Reserve.schema.methods.notifyRestaurant = function(info, callback) {
     }, {
       apiKey: process.env.MAILGUN_API_KEY,
       domain: process.env.MAILGUN_DOMAIN,
-      //to: info.restemail,
-      to: 'talvasconcelos@gmail.com',
+      to: info.restemail,
+      //to: 'talvasconcelos@gmail.com',
       from: {
         name: 'Maître',
         email: 'info@maitre.pt'
@@ -74,7 +74,8 @@ Reserve.schema.methods.notifyRestaurant = function(info, callback) {
 
 Reserve.schema.methods.notifyUser = function(info, callback) {
   var reserve = this;
-  var template = reserve.restResponse.confirm ? 'templates/email/reserve_confirm.pug' : 'templates/email/reserve_denied.pug'
+  var template = reserve.restResponse.confirm ? 'templates/email/reserve_confirm.pug' : 'templates/email/reserve_denied.pug';
+  var sub = reserve.state === 'confirmed' ? 'confirmada.' : 'negada.';
   new Email(template, { transport: 'mailgun' })
     .send({
       username: info.user,
@@ -90,7 +91,7 @@ Reserve.schema.methods.notifyUser = function(info, callback) {
         name: 'Maître',
         email: 'info@maitre.pt'
       },
-      subject: 'Reserva Maître (id:' + reserve.id + ')',
+      subject: 'Reserva Maître (id:' + reserve.id + ') ' + sub,
       'o:tracking-clicks': 'no'
     }, function (err, result) {
       err ? console.error('🤕 Mailgun test failed with error:\n', err) : console.log('📬 Successfully sent Mailgun email with result:\n', result);

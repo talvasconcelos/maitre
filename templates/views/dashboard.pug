@@ -22,16 +22,16 @@ block content
                     label(for='name_last') Apelido
                   .input-field
                     input(id='email', type='email', class='validate', name='email', value=user.email)
-                    label(for='email') Email    
+                    label(for='email') Email
               .col.s12.m6
                 h5 Informação Pública
                 .input-field
                   input(value)
-            
+
             .row
               .col.s12.m6
                 button.btn(type='submit') Guardar
-                
+
           form.section(method='post')
             input(type='hidden', name='action', value='updatePassword')
             .row
@@ -47,8 +47,8 @@ block content
               .col.s12
                 button.btn-flat.waves-effect(type='submit') Mudar Password
         .section.row
-                  
-              
+
+
 
         #reserves
             h4 As suas reservas
@@ -57,9 +57,9 @@ block content
                     each r in data.reserv
                         li
                             .collapsible-header
-                                span.title #{r.restaurant.name}                                    
+                                span.title #{r.restaurant.name}
                                 | , #{r._.date.moment().fromNow()}
-                                .right                 
+                                .right
                                     case r.state
                                         when 'null'
                                             i(class='material-icons red-text tooltipped', data-position='left', data-tooltip='Erro') error
@@ -75,12 +75,12 @@ block content
                                             i.material-icons error
 
                             .collapsible-body
-                                p Reserva para #{r.party_size} pessoas no #{r.restaurant.name}, dia #{r._.date.moment().calendar()}.
+                                p Reserva para #{r.party_size} pessoas no #{r.restaurant.name}, #{r._.date.moment().calendar()}.
                                     br
                                     | Criada a: #{r._.createdAt.format('L')}
                                     br
                                     if r.restResponse.date
-                                        | Respondida a: #{r._.restResponse.date.format('DD MMMM [as] h:mm')}
+                                        | Respondida a: #{r._.restResponse.date.format('DD MMMM [as] hh:mm')}
                                         if r.restResponse.confirm
                                             span  e esta confirmada.
                                     else
@@ -91,5 +91,5 @@ block content
 block js
     script.
         $(document).ready(function() {
-            
+
         });

@@ -14,7 +14,7 @@ block content
 				else
 					p Temos uma reserva para o #{found.restaurant.name}.
 						br
-						| Reserva feita em nome de #{found.user.name.full}, para #{found.party_size} pessoas, #{moment(found.date).format('dddd')}, #{moment(found.date).format('DD')} de #{moment(found.date).format('MMMM')} às #{moment(found.date).format('LT')}.   
+						| Reserva feita em nome de #{found.user.name.full}, para #{found.party_size} pessoas, #{moment(found.date).format('dddd')}, #{moment(found.date).format('DD')} de #{moment(found.date).format('MMMM')} às #{moment(found.date).format('HH:mm')}.   
 					.section.container
 						h6 Resumo da reserva
 						.section
@@ -50,12 +50,9 @@ block content
 									.col.s6
 										button.btn-large.green(type='submit'): i.material-icons check_circle
 										p.center-align.grey-text: small Confirmar
-												
+
 								form(method='post')
 									input(type='hidden', name='action', value='restreply.reject')
 									.col.s6
 										button.btn-large.red(type='submit'): i.material-icons cancel
 										p.center-align.grey-text: small Rejeitar
-						
-
-	
