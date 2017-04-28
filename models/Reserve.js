@@ -74,7 +74,8 @@ Reserve.schema.methods.notifyRestaurant = function(info, callback) {
 
 Reserve.schema.methods.notifyUser = function(info, callback) {
   var reserve = this;
-  new Email('templates/email/reserve_confirm.pug', { transport: 'mailgun' })
+  var template = reserve.restResponse.confirm ? 'templates/email/reserve_confirm.pug' : 'templates/email/reserve_denied.pug'
+  new Email(template, { transport: 'mailgun' })
     .send({
       username: info.user,
       restname: info.restaurant,

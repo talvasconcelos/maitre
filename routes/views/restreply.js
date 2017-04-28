@@ -47,6 +47,7 @@ exports = module.exports = function(req, res) {
   view.on('post', {action: 'restreply.reject'}, function(next) {
     locals.found.state = 'denied';
     locals.found.reservLink = '';
+    locals.found.restResponse.confirm = false;
     locals.found.restResponse.date = new Date();
     var info = {
       user: locals.found.user.name.full,
