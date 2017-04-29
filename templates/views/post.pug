@@ -5,7 +5,7 @@ block ograph
 	meta(property='og:url', content='http://beta.maitre.pt/blog/post/' + data.post.slug)
 	meta(property='og:type', content='website')
 	meta(property='og:title', content= data.post.title)
-	meta(property='og:description', content= data.post.content.brief)
+	meta(property='og:description', content!= data.post.content.brief)
 	meta(property='og:image', content= data.post._.image.src())
 
 	meta(name='twitter:card', content='summary_large_image')
