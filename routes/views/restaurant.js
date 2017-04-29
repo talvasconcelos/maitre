@@ -64,7 +64,6 @@ exports = module.exports = function (req, res) {
       temp[i] = moment(start)
       start = moment(start).add(30, 'minutes')
     }
-    console.log(temp)
     locals.dates.intervals = temp
 		next();
 	});

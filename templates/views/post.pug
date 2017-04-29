@@ -1,50 +1,51 @@
 extends ../layouts/default
-//-include ../mixins/social/social-share
+include ../mixins/social/social-share
+
+block ograph
+	meta(property='og:url', content='http://beta.maitre.pt/blog/post/' + data.post.slug)
+	meta(property='og:type', content='website')
+	meta(property='og:title', content= data.post.title)
+	meta(property='og:description', content= data.post.content.brief)
+	meta(property='og:image', content= data.post._.image.src())
+
+	meta(name='twitter:card', content='summary_large_image')
+	meta(name='twitter:site', content='@maitreApp')
 
 block content
-	//-article
-		if data.post.image.exists
-			.parallax-container
-					.parallax
-						img(src= data.post.image.url)
-		.container
-			.post--content
-				if !data.post
-					h2 Post inválido.
-				else
-					.card
-						.card-content
-							h2= data.post.title
-							!= data.post.content.full
-
 	.container
+		p: a(href='/blog') &larr; voltar ao blog
+		hr
 		article
-			p: a(href='/blog') &larr; voltar ao blog
-			hr
 			if !data.post
 				h2 Post inválido.
 			else
 				header
 					h2= data.post.title
 					//+share()
-					p.thin: small Publicado 
+					p.thin: small Publicado&nbsp;
 						if data.post.publishedDate
-							| a #{data.post._.publishedDate.format('D MMM, YYYY')} 
+							| a #{data.post._.publishedDate.format('D MMM, YYYY')}&nbsp;
 						if data.post.categories && data.post.categories.length
-							| em 
+							| em&nbsp;
 							each cat, i in data.post.categories
 								a(href='/blog/' + cat.key)= cat.name
 								if i < data.post.categories.length - 1
-									| , 
+									| ,&nbsp;
 								else
-									|  
+									| &nbsp;
 						if data.post.author
 							| por #{data.post.author.name.full}
-					
+
 				.post
 					if data.post.image.exists
-						.image-wrap: img(src=data.post._.image.fit(750,450)).img-responsive
+						img.responsive-img(src=data.post._.image.fill())
+					p: strong!= data.post.content.brief
 					!= data.post.content.full
+		.social
+			h5 Partilhar
+			+share(data.post)
+		hr
+		p: a(href='/blog') &larr; voltar ao blog
 
 
 //-block js

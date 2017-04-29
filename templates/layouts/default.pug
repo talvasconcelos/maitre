@@ -11,16 +11,9 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		meta(property='og:url', content='http://beta.maitre.pt')
-		meta(property='og:type', content='website')
-		meta(property='og:title', content='The App is almost finished. Launching on #May1Reboot.')
-		meta(property='og:description', content='If you live in Portugal or just visiting, Maître has a curated list of restaurants you can book! Subscribe to learn more.')
-		meta(property='og:image', content='http://i.imgur.com/5Ch676K.png')
+		block ograph
 
-		meta(name='twitter:card', content='summary_large_image')
-		meta(name='twitter:site', content='@maitreApp')
-
-		title= title || 'Maître'
+		title= title || 'Maître Reservas Online'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.sass
@@ -107,18 +100,10 @@ html
 						h5.white-text Links
 						ul
 							+nav-bar-links(class = 'grey-text text-lighten-3')
-							//- li
-							//- 	a.grey-text.text-lighten-3(href='#!') Link 1
-							//- li
-							//- 	a.grey-text.text-lighten-3(href='#!') Link 2
-							//- li
-							//- 	a.grey-text.text-lighten-3(href='#!') Link 3
-							//- li
-							//- 	a.grey-text.text-lighten-3(href='#!') Link 4
 			.footer-copyright
 				.container
 					| © 2017 Maitre
-					a.grey-text.text-lighten-4.right(href='#!') More Links
+					a.grey-text.text-lighten-4.right(href='https://glowingturtle.typeform.com/to/UbbR1f' target='_blank') Restaurantes
 
 
 		//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
@@ -148,7 +133,7 @@ html
 
 		//- Include template-specific javascript files by extending the js block
 	block js
-	//script.
+	script.
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

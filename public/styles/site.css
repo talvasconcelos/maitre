@@ -6397,6 +6397,20 @@ header .beta {
 input.qty {
   font-size: 1.5rem; }
 
+article {
+  max-width: 37.5em;
+  margin: 0 auto; }
+  article .card-title {
+    background: linear-gradient(to bottom, rgba(7, 2, 14, 0) 0%, rgba(7, 2, 14, 0.5) 50%, rgba(7, 2, 14, 0.75) 100%);
+    width: 100%; }
+  article .post {
+    margin-bottom: 5em; }
+    article .post strong {
+      font-size: 112.5%; }
+    article .post ul > li {
+      list-style: circle inside;
+      margin-left: 2em; }
+
 .card-center {
   display: flex;
   align-items: center;
