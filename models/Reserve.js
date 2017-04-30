@@ -41,6 +41,14 @@ Reserve.schema.pre('save', function(next) {
   next();
 })
 
+Reserve.schema.methods.updateState = function(callback) {
+  var reserve = this;
+  if (moment().isAfter(moment(reserve.date))) {
+    reserve.state = 'ended';
+    reserve.endedAt = reserve.date;
+  }
+}
+
 Reserve.schema.methods.notifyRestaurant = function(info, callback) {
   var reserve = this;
   reserve.reservLink = keystone.utils.randomString([16,24]);

@@ -49,6 +49,7 @@ exports = module.exports = function(req, res) {
     locals.found.state = 'denied';
     locals.found.restResponse.confirm = false;
     locals.found.restResponse.date = new Date();
+    locals.found.reservLink = '';
     var info = {
       user: locals.found.user.name.full,
       usermail: locals.found.user.email,

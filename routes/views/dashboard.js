@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var async = require('async');
 
 exports = module.exports = function (req, res) {
 
@@ -22,6 +23,11 @@ exports = module.exports = function (req, res) {
 		.sort('-createdAt')
 		.exec(function(err, result) {
 			if(err) return res.err(err);
+			async.each(result, function(r, next){
+				r.updateState();
+			}, function(err) {
+				next(err);
+			})
 			locals.data.reserv = result;
 			next();
 		});
