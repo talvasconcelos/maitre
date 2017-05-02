@@ -29,7 +29,15 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
-	'port': process.env.PORT || 3000
+	/*'port': process.env.PORT || 3000,
+	'ssl port': process.env.SSLPORT || 8001,
+	ssl: 'force',
+	letsencrypt: (process.env.NODE_ENV === 'production') && {
+		email: 'geral@glowingturtle.pt',
+		domains: ['beta.maitre.pt', 'www.maitre.pt', 'maitre.pt'],
+		register: true,
+		tos: true
+	}*/
 
 });
 
@@ -64,7 +72,7 @@ keystone.set('routes', require('./routes'));
 // Configure the navigation bar in Keystone's Admin UI
 keystone.set('nav', {
 	posts: ['posts', 'post-categories'],
-	galleries: 'galleries',
+	reserves: 'reserves',
 	enquiries: 'enquiries',
 	users: 'users',
 	restaurants: 'restaurants'
