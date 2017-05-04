@@ -52,7 +52,7 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/rest/:rest', routes.views.restaurant);
-	app.get('/restaurants/:city', routes.views.restaurants);
+	app.get('/restaurants/:city?', routes.views.restaurants);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);

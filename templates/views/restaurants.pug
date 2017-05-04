@@ -1,5 +1,15 @@
 extends ../layouts/default
 
+block ograph
+	meta(property='og:url', content='http://beta.maitre.pt/restaurants/')
+	meta(property='og:type', content='website')
+	meta(property='og:title', content='Maître, escolha a sua mesa.')
+	meta(property='og:description', content='Com a Maître, escolhe e reserva uma mesa num dos nossos restaurantes parceiros. O concierge trata do resto por si!')
+	meta(property='og:image', content='http://beta.maitre.pt/images/hero/rest_hero.jpg')
+
+	meta(name='twitter:card', content='summary_large_image')
+	meta(name='twitter:site', content='@maitreApp')
+
 block content
 	section.restaurants
 		.container
@@ -11,7 +21,7 @@ block content
 						article
 							.card
 								.card-image
-									img(src= rest._.image.fit())
+									img(src= rest._.image.fill())
 									//- img(src='https://source.unsplash.com/category/food/')
 									span.card-title.card-title--index= rest.name
 								.card-content

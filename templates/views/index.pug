@@ -3,51 +3,15 @@ extends ../layouts/default
 block ograph
 	meta(property='og:url', content='http://beta.maitre.pt')
 	meta(property='og:type', content='website')
-	meta(property='og:title', content='The App is almost finished. Launching on #May1Reboot.')
-	meta(property='og:description', content='If you live in Portugal or just visiting, Maître has a curated list of restaurants you can book! Subscribe to learn more.')
-	meta(property='og:image', content='http://i.imgur.com/5Ch676K.png')
+	meta(property='og:title', content='Maître, escolha a sua mesa.')
+	meta(property='og:description', content='Com a Maître, escolhe e reserva uma mesa num dos nossos restaurantes parceiros. O concierge trata do resto por si!')
+	meta(property='og:image', content='http://beta.maitre.pt/images/hero/rest_hero.jpg')
 
 	meta(name='twitter:card', content='summary_large_image')
 	meta(name='twitter:site', content='@maitreApp')
 
 block content
-	- var time = new Date()
-	- var may = new Date('2017-05-01T00:00:01')
-	- var ok = time.getTime() - may.getTime()
-
-	if ok < 0
-		.may1reboot-overlay
-			.container
-				.pitch
-					h4 Maître
-
-					h1 the app is
-						br
-						| almost
-						span finished
-
-					h4 launching on may 1
-						br
-						| #may1reboot
-
-					#countdown
-						.wrapper
-							small Days
-							span.days
-						.wrapper
-							small Hours
-							span.hours
-						.wrapper
-							small Minutes
-							span.minutes
-						.wrapper
-							small Seconds
-							span.seconds
-
-					a(href='#!', onclick="mailChimpPop(); return false;").btn-large.cta Learn more
-					small subscribe to get all the news
-	else
-		.hero
+	.hero
 			.hero--bg
 				.hero--content.center.container
 					h3
@@ -68,55 +32,55 @@ block content
 									option(value= city)= city
 					a#reserv.btn-flat(href='/restaurants/Lisboa') Procurar
 
-		section.section.restaurants
-			.container
-				.section--title
-					h3 Destaques
-				.row
-					each rest in _.sampleSize(_.shuffle(restaurants), 4)
-						.col.m6
-							.card.small
-								.card-image
-									img(src= rest.image.url)
-									//- img(src='https://source.unsplash.com/category/food/')
-									span.card-title.card-title--index= rest.name
-								.card-content
-									p: small= 'Cozinha: ' + rest.cuisines
-								.card-action
-									a(href='rest/' + rest.key) Ver Mais
-		section.section
-			.container
-				.section--title
-					h3 Como funciona
-				.row
-					.col.s12.m4.center
-						i.medium.material-icons search
-						h5 Escolha um restaurante
-						p Escolha de entre a nossa lista curada de restaurantes em todo o país.
-					.col.s12.m4.center
-						i.medium.material-icons date_range
-						h5 Faça uma reserva
-						p Faça a sua reserva escolhendo o dia e hora ou obtenha ajuda do Concierge Digital
-					.col.s12.m4.center
-						i.medium.material-icons credit_card
-						h5 Pagamento Online
-						p Com o&nbsp;
-							a(href='https://stripe.com/pt') Stripe
-							| &nbsp;como parceiro, no final da sua refeição tratamos do resto por si, até da conta.
+	section.section.restaurants
+		.container
+			.section--title
+				h3 Destaques
+			.row
+				each rest in _.sampleSize(_.shuffle(restaurants), 4)
+					.col.m6
+						.card.small
+							.card-image
+								img(src= rest.image.url)
+								//- img(src='https://source.unsplash.com/category/food/')
+								span.card-title.card-title--index= rest.name
+							.card-content
+								p: small= 'Cozinha: ' + rest.cuisines
+							.card-action
+								a(href='rest/' + rest.key) Ver Mais
+	section.section
+		.container
+			.section--title
+				h3 Como funciona
+			.row
+				.col.s12.m4.center
+					i.medium.material-icons search
+					h5 Escolha um restaurante
+					p Escolha de entre a nossa lista curada de restaurantes em todo o país.
+				.col.s12.m4.center
+					i.medium.material-icons date_range
+					h5 Faça uma reserva
+					p Faça a sua reserva escolhendo o dia e hora ou obtenha ajuda do Concierge Digital
+				.col.s12.m4.center
+					i.medium.material-icons credit_card
+					h5 Pagamento Online
+					p Com o&nbsp;
+						a(href='https://stripe.com/pt') Stripe
+						| &nbsp;como parceiro, no final da sua refeição tratamos do resto por si, até da conta.
 
-		section.section.grey.lighten-4
-			.container
-				h4 Tudo num só sítio
-				p Em vez de procurar o restaurante onde quer ir, depois tentar descobrir onde fica, procurar os contactos para fazer uma reserva... Muitas vezes estas informações estão espalhadas em vários sítios e com informações desactualizadas. Com a aplicação Maître, tem todas as informações num só sítio.
-				h4 Lista dos melhores restaurantes
-				p Apresentamos-lhe uma lista cuidada dos melhores restaurantes em cada cidade para que possa escolher. O concierge pode até fazer recomendações baseadas nos seus gostos pessoais. Basta escolher onde, em que dia e a que horas quer marcar uma mesa num restaurante e a aplicação trata do resto, mantendo-o informado sobre o estado das suas reservas.
-				h4 Sem constrangimentos
-				p Para muitos, ter que ligar para alguém desconhecido num restaurante a marcar uma mesa pode ser algo embaraçoso. Com a Maître isso acabou. A partir do momento que fizer a sua escolha de restaurante, o concierge entra em contacto com o restaurante e faz a sua marcação. Caso a hora que pretenda não esteja disponível, pode ainda sugerir-lhe um horário disponível ou restaurantes semelhantes.
+	section.section.grey.lighten-4
+		.container
+			h4 Tudo num só sítio
+			p Em vez de procurar o restaurante onde quer ir, depois tentar descobrir onde fica, procurar os contactos para fazer uma reserva... Muitas vezes estas informações estão espalhadas em vários sítios e com informações desactualizadas. Com a aplicação Maître, tem todas as informações num só sítio.
+			h4 Lista dos melhores restaurantes
+			p Apresentamos-lhe uma lista cuidada dos melhores restaurantes em cada cidade para que possa escolher. O concierge pode até fazer recomendações baseadas nos seus gostos pessoais. Basta escolher onde, em que dia e a que horas quer marcar uma mesa num restaurante e a aplicação trata do resto, mantendo-o informado sobre o estado das suas reservas.
+			h4 Sem constrangimentos
+			p Para muitos, ter que ligar para alguém desconhecido num restaurante a marcar uma mesa pode ser algo embaraçoso. Com a Maître isso acabou. A partir do momento que fizer a sua escolha de restaurante, o concierge entra em contacto com o restaurante e faz a sua marcação. Caso a hora que pretenda não esteja disponível, pode ainda sugerir-lhe um horário disponível ou restaurantes semelhantes.
 
-		section.hero--footer
-			.container
-				h3 Faça a sua reserva
-				a#reservFoot.btn-large(href='/restaurants/Lisboa') Procurar
+	section.hero--footer
+		.container
+			h3 Faça a sua reserva
+			a#reservFoot.btn-large(href='/restaurants/Lisboa') Procurar
 
 
 block js
@@ -131,7 +95,6 @@ block js
 			})
 
 			$('.sub-menu li span').on('click', function() {
-				console.log('city')
 				var value = $(this).text()
 				$('#city-pick').html(value);
 				$('#reserv').attr('href', '/restaurants/' + convertToSlug(value));
@@ -153,54 +116,4 @@ block js
 			    return Text;
 			}
 
-			var deadline = '2017-05-01T00:00:01'
-			initializeClock('countdown', deadline);
-
 		});
-
-		function getTimeRemaining(endtime) {
-		  var t = Date.parse(endtime) - Date.parse(new Date());
-		  var seconds = Math.floor((t / 1000) % 60);
-		  var minutes = Math.floor((t / 1000 / 60) % 60);
-		  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-		  var days = Math.floor(t / (1000 * 60 * 60 * 24));
-		  return {
-		    'total': t,
-		    'days': days,
-		    'hours': hours,
-		    'minutes': minutes,
-		    'seconds': seconds
-		  };
-		}
-
-		function initializeClock(id, endtime) {
-		  var clock = document.getElementById(id);
-		  var daysSpan = clock.querySelector('.days');
-		  var hoursSpan = clock.querySelector('.hours');
-		  var minutesSpan = clock.querySelector('.minutes');
-		  var secondsSpan = clock.querySelector('.seconds');
-
-		  function updateClock() {
-		    var t = getTimeRemaining(endtime);
-
-		    daysSpan.innerHTML = t.days;
-		    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-		    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-		    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-		    if (t.total <= 0) {
-		      clearInterval(timeinterval);
-		    }
-		  }
-
-		  updateClock();
-		  var timeinterval = setInterval(updateClock, 1000);
-		}
-	.
-		<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-		<script type="text/javascript">
-			function mailChimpPop() {
-				require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us8.list-manage.com","uuid":"c566a73727fc13ffedabf7712","lid":"efb9e56b93"}) })
-				document.cookie = "MCEvilPopupClosed=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
-			};
-		</script>

@@ -20,19 +20,32 @@ exports = module.exports = function (req, res) {
 	// Load all restaurants
 	view.on('init', function (next) {
 
-		keystone.list('Restaurant').model.find().where('location.state', locals.filters.city).exec(function (err, results) {
+		var q = keystone.list('Restaurant').model.find();
 
-			/*if (err || !results.length) {
-				return next(err);
-			}*/
+		if (locals.filters.city) {
+			q.where('location.state', locals.filters.city);
+		}
+
+		q.exec(function (err, results) {
 
 			locals.data.restaurants = results;
 
 			next(err);
 		});
+
+		//keystone.list('Restaurant').model.find().where('location.state', locals.filters.city).exec(function (err, results) {
+
+			/*if (err || !results.length) {
+				return next(err);
+			}*/
+
+			//locals.data.restaurants = results;
+
+			//next(err);
+		//});
 	});
 
-	
+
 	// Render the view
 	view.render('restaurants');
 };
