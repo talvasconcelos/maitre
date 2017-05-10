@@ -7,6 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
 // Require keystone
 var keystone = require('keystone');
 var path = require('path');
+var i18n = require('i18n');
 
 // Initialise Keystone with your project's configuration.
 // See http://keystonejs.com/guide/config for available options
@@ -58,6 +59,14 @@ keystone.set('locals', {
 		if (keystone.get('env') === 'production') return 'http://www.maitre.pt';
 		return (keystone.get('host') || 'http://localhost') + ':' + (keystone.get('port') || '8000');
 	})()
+});
+
+// Configure i18n
+i18n.configure({
+	locales:['en', 'pt', 'fr', 'de'],
+	directory: __dirname + '/locales',
+	objectNotation: true,
+	defaultLocale: 'pt'
 });
 
 

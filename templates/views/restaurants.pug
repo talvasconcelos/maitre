@@ -25,6 +25,6 @@ block content
 									//- img(src='https://source.unsplash.com/category/food/')
 									span.card-title.card-title--index= rest.name
 								.card-content
-									p: small= 'Cozinha: ' + rest.cuisines
+									p: small= __('restaurant.cuisines') + rest.cuisines
 								.card-action
-									a(href='/rest/' + rest.key) Ver Mais
+									a(href='/rest/' + rest.key) #{__('cards.more')}

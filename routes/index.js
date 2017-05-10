@@ -21,7 +21,11 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
+var i18n = require('i18n');
 //var client = keystone.importer('../app_client/index.html')
+
+// Add-in i18n support
+keystone.pre('routes', i18n.init);
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);

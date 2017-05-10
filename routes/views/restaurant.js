@@ -2,20 +2,26 @@ var keystone = require('keystone');
 var moment = require('moment');
 var Rest = keystone.list('Restaurant');
 
-moment.locale('pt');
-
-moment.updateLocale('pt', {
-    calendar : {
-        sameDay : '[Hoje,] DD MMMM',
-        nextDay : '[Amanha,] DD MMMM'
-    }
-});
-
-
 exports = module.exports = function (req, res) {
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
+
+
+    moment.locale(locals.locale, {
+      calendar: {
+        sameDay: 'DD MMMM',
+        nextDay: 'DD MMMM'
+      }
+    });
+
+    if (locals.locale === 'pt')
+      moment.updateLocale('pt', {
+          calendar : {
+              sameDay : '[Hoje,] DD MMMM',
+              nextDay : '[Amanha,] DD MMMM'
+          }
+      });
 
 	// Set locals
 	locals.dates = {

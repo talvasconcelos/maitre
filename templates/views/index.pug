@@ -15,9 +15,9 @@ block content
 			.hero--bg
 				.hero--content.center.container
 					h3
-						|Encontre a sua mesa
+						|#{__('hero.line_001')}
 						br
-						|em&nbsp;
+						|#{__('hero.line_002')}
 						span
 							.city
 								span#city-pick Lisboa
@@ -30,12 +30,12 @@ block content
 								if city != 'Lisboa'
 									option(value = 'Lisboa') Lisboa
 									option(value= city)= city
-					a#reserv.btn-flat(href='/restaurants/Lisboa') Procurar
+					a#reserv.btn-flat(href='/restaurants/Lisboa') #{__('hero.button')}
 
 	section.section.restaurants
 		.container
 			.section--title
-				h3 Destaques
+				h3 #{__('features.title')}
 			.row
 				each rest in _.sampleSize(_.shuffle(restaurants), 4)
 					.col.m6
@@ -47,40 +47,37 @@ block content
 							.card-content
 								p: small= 'Cozinha: ' + rest.cuisines
 							.card-action
-								a(href='rest/' + rest.key) Ver Mais
+								a(href='rest/' + rest.key) #{__('cards.more')}
 	section.section
 		.container
 			.section--title
-				h3 Como funciona
+				h3 #{__('how.title')}
 			.row
 				.col.s12.m4.center
 					i.medium.material-icons search
-					h5 Escolha um restaurante
-					p Escolha de entre a nossa lista curada de restaurantes em todo o país.
+					h5 #{__('how.col_1.title')}
+					p #{__('how.col_1.text')}
 				.col.s12.m4.center
 					i.medium.material-icons date_range
-					h5 Faça uma reserva
-					p Faça a sua reserva escolhendo o dia e hora ou obtenha ajuda do Concierge Digital
+					h5 #{__('how.col_2.title')}
+					p #{__('how.col_2.text')}
 				.col.s12.m4.center
 					i.medium.material-icons credit_card
-					h5 Pagamento Online
-					p Com o&nbsp;
-						a(href='https://stripe.com/pt') Stripe
-						| &nbsp;como parceiro, no final da sua refeição tratamos do resto por si, até da conta.
+					h5 #{__('how.col_3.title')}
+					p #{__('how.col_3.text')}
 
 	section.section.grey.lighten-4
 		.container
-			h4 Tudo num só sítio
-			p Em vez de procurar o restaurante onde quer ir, depois tentar descobrir onde fica, procurar os contactos para fazer uma reserva... Muitas vezes estas informações estão espalhadas em vários sítios e com informações desactualizadas. Com a aplicação Maître, tem todas as informações num só sítio.
-			h4 Lista dos melhores restaurantes
-			p Apresentamos-lhe uma lista cuidada dos melhores restaurantes em cada cidade para que possa escolher. O concierge pode até fazer recomendações baseadas nos seus gostos pessoais. Basta escolher onde, em que dia e a que horas quer marcar uma mesa num restaurante e a aplicação trata do resto, mantendo-o informado sobre o estado das suas reservas.
-			h4 Sem constrangimentos
-			p Para muitos, ter que ligar para alguém desconhecido num restaurante a marcar uma mesa pode ser algo embaraçoso. Com a Maître isso acabou. A partir do momento que fizer a sua escolha de restaurante, o concierge entra em contacto com o restaurante e faz a sua marcação. Caso a hora que pretenda não esteja disponível, pode ainda sugerir-lhe um horário disponível ou restaurantes semelhantes.
-
+			h4 #{__('how.col_4.title')}
+			p #{__('how.col_4.text')}
+			h4 #{__('how.col_5.title')}
+			p #{__('how.col_5.text')}
+			h4 #{__('how.col_6.title')}
+			p #{__('how.col_6.text')}
 	section.hero--footer
 		.container
-			h3 Faça a sua reserva
-			a#reservFoot.btn-large(href='/restaurants/Lisboa') Procurar
+			h3 #{__('MakeReservation')}
+			a#reservFoot.btn-large(href='/restaurants/Lisboa') #{__('find')}
 
 
 block js

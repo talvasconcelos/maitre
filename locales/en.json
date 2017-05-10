@@ -1,0 +1,59 @@
+{
+	"hero": {
+		"line_001": "Find a table ",
+		"line_002": "in ",
+		"button": "Search"
+	},
+	"features": {
+		"title": "Featured"
+	},
+	"how": {
+		"title": "How it works",
+		"col_1": {
+			"title": "Find a restaurant",
+			"text": "Escolha de entre a nossa lista curada de restaurantes em todo o país."
+		},
+		"col_2": {
+			"title": "Make a reservation",
+			"text": "Faça a sua reserva escolhendo o dia e hora ou obtenha ajuda do Concierge Digital"
+		},
+		"col_3": {
+			"title": "Online Payment",
+			"text": "Com o <a href='https://stripe.com/pt'>Stripe</a> como parceiro, no final da sua refeição tratamos do resto por si, até da conta."
+		},
+		"col_4": {
+			"title": "All in one place",
+			"text": "Em vez de procurar o restaurante onde quer ir, depois tentar descobrir onde fica, procurar os contactos para fazer uma reserva... Muitas vezes estas informações estão espalhadas em vários sítios e com informações desactualizadas. Com a aplicação Maître, tem todas as informações num só sítio."
+		},
+		"col_5": {
+			"title": "Curated restaurants",
+			"text": "Apresentamos-lhe uma lista cuidada dos melhores restaurantes em cada cidade para que possa escolher. O concierge pode até fazer recomendações baseadas nos seus gostos pessoais. Basta escolher onde, em que dia e a que horas quer marcar uma mesa num restaurante e a aplicação trata do resto, mantendo-o informado sobre o estado das suas reservas."
+		},
+		"col_6": {
+			"title": "No frills",
+			"text": "Para muitos, ter que ligar para alguém desconhecido num restaurante a marcar uma mesa pode ser algo embaraçoso. Com a Maître isso acabou. A partir do momento que fizer a sua escolha de restaurante, o concierge entra em contacto com o restaurante e faz a sua marcação. Caso a hora que pretenda não esteja disponível, pode ainda sugerir-lhe um horário disponível ou restaurantes semelhantes."
+		}
+	},
+	"MakeReservation": "Make your reservation",
+	"find": "Search",
+	"Restaurants": "Restaurants",
+	"cards": {
+		"more": "More"
+	},
+	"restaurant": {
+		"cuisines": "Cuisines ",
+		"localization": "Location",
+		"price_for_2": "Cost for 2",
+		"description": "Description",
+		"reserve": {
+			"party": "Party size",
+			"people": {
+				"one": "%s Person",
+				"other": "%s People"
+			},
+			"date": "Date",
+			"hour": "Hour",
+			"reserve": "Reserve"
+		}
+	}
+}

@@ -25,12 +25,12 @@ block content
 						.col.s12.m4
 							.center
 								i.small.material-icons restaurant
-								p.thin.grey-text Tipo de Cozinha
+								p.thin.grey-text #{__('restaurant.cuisines')}
 								p= rest.cuisines
 						.col.s12.m4
 							.center
 								i.small.material-icons location_city
-								p.thin.grey-text Localização
+								p.thin.grey-text #{__('restaurant.localization')}
 								if rest.location.suburb
 									if rest.location.suburb != rest.location.state
 										p= rest.location.suburb
@@ -38,7 +38,7 @@ block content
 						.col.s12.m4
 							.center
 								i.small.material-icons monetization_on
-								p.thin.grey-text Preço para 2
+								p.thin.grey-text #{__('restaurant.price_for_2')}
 								p= '€' + rest.cost_for_two
 					.section
 						if rest.location.geo
@@ -62,18 +62,18 @@ block content
 								<script async defer src="https://maps.googleapis.com/maps/api/js?key=#{process.env.GOOGLE_BROWSER_KEY}&callback=initMap"></script>
 
 					.section
-						span.card-title Descrição
+						span.card-title #{__('restaurant.description')}
 						.rest-description!= rest.description
 
 					if rest.singular
 						.divider
 						.section
 							if rest.singular.chef
-								P= 'Chef: ' + rest.singular.chef
+								p= __('restaurant.singular.chef') + rest.singular.chef
 							if rest.singular.awards
-								p= 'Prémios: ' + rest.singular.awards
+								p= __('restaurant.singular.awards') + rest.singular.awards
 							if rest.singular.signatureDish
-								p= 'Prato recomendado: ' + rest.singular.signatureDish
+								p= __('restaurant.singular.known') + rest.singular.signatureDish
 					.section
 						.row
 							.col.s12
@@ -83,47 +83,45 @@ block content
 								input(type='hidden', name='restEmail', value=rest.contact.email)
 
 								.input-field.col.s12
-									p.center-align Quantas pessoas
+									p.center-align #{__('restaurant.reserve.party')}
 									select(name='party_size')
-										option(value='2') 2 Pessoas
-										option(value='1') 1 Pessoa
-										option(value='3') 3 Pessoas
-										option(value='4') 4 Pessoas
-										option(value='5') 5 Pessoas
-										option(value='6') 6 Pessoas
-										option(value='7') 7 Pessoas
-										option(value='8') 8 Pessoas
-										option(value='9') 9 Pessoas
-										option(value='10') 10 Pessoas
+										option(value='2') #{__n('restaurant.reserve.people',2)}
+										option(value='1') #{__n('restaurant.reserve.people',1)}
+										option(value='3') #{__n('restaurant.reserve.people',3)}
+										option(value='4') #{__n('restaurant.reserve.people',4)}
+										option(value='5') #{__n('restaurant.reserve.people',5)}
+										option(value='6') #{__n('restaurant.reserve.people',6)}
+										option(value='7') #{__n('restaurant.reserve.people',7)}
+										option(value='8') #{__n('restaurant.reserve.people',8)}
+										option(value='9') #{__n('restaurant.reserve.people',9)}
+										option(value='10') #{__n('restaurant.reserve.people',10)}
+										option(value="11") #{__n('restaurant.reserve.people',11)}
+										option(value="12") #{__n('restaurant.reserve.people',12)}
+										option(value="13") #{__n('restaurant.reserve.people',13)}
+										option(value="14") #{__n('restaurant.reserve.people',14)}
+										option(value="15") #{__n('restaurant.reserve.people',15)}
+										option(value="16") #{__n('restaurant.reserve.people',16)}
+										option(value="17") #{__n('restaurant.reserve.people',17)}
+										option(value="18") #{__n('restaurant.reserve.people',18)}
+										option(value="19") #{__n('restaurant.reserve.people',19)}
+										option(value="20") #{__n('restaurant.reserve.people',20)}
+										
 
 								.input-field.col.s12
-									p.center-align Data
+									p.center-align #{__('restaurant.reserve.date')}
 									select(name='day')
 										each day, index in dates.pretty
 											option(value= dates.ugly[index])= day
 								.input-field.col.s12
-									p.center-align Horario
+									p.center-align #{__('restaurant.reserve.hour')}
 									select(name='hour')
 										each time in dates.intervals
 											option(value= time)= time.format('LT')
 
-										//option(value='12') 12:00
-										//option(value='13') 13:00
-										//option(value='14') 14:00
-										//option(value='15') 15:00
-										//option(value='16') 16:00
-										//option(value='17') 17:00
-										//option(value='18') 18:00
-										//option(value='19') 19:00
-										//option(value='20') 20:00
-										//option(value='21') 21:00
-										//option(value='22') 22:00
-										//option(value='23') 23:00
-
-
-
 				.card-action
-					button(class='btn-flat', type='submit') Reservar
+					button(class='btn-flat', type='submit') #{__('restaurant.reserve.reserve')}
+		hr
+		p: a(href='/restaurants') &larr; voltar à lista
 block js
 	script.
 		$(document).ready(function(){
@@ -163,11 +161,6 @@ block js
 		            $('input[name='+fieldName+']').val(1);
 		        }
 		    });
-
-		    $('.datepicker').pickadate({
-			    selectMonths: false, // Creates a dropdown to control month
-			    min: Date.now() // Creates a dropdown of 15 years to control year
-			});
 
 			$('select').material_select();
 		});
