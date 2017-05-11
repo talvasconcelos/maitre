@@ -5,47 +5,48 @@ block flash-messages
 block content
     .dashboard.container
         .section#perfil
-          h4 Olá #{user.name.full}
+          h4= __('dashboard.greet', user.name.full)
+          p #{locale}
           form.section(method='post')
             input(type='hidden', name='action', value='update')
             .row
               .col.s12
                 +flash-messages(messages)
               .col.s12.m6
-                h5 Informação Pessoal
+                h5= __('dashboard.personal')
                 .section
                   .input-field
                     input(id='name_first', type='text', class='validate', name='name.first', value=user.name.first)
-                    label(for='name_first') Nome
+                    label(for='name_first') #{__('form.firstName')}
                   .input-field
                     input(id='name_last', type='text', class='validate', name='name.last', value=user.name.last)
-                    label(for='name_last') Apelido
+                    label(for='name_last') #{__('form.lastName')}
                   .input-field
                     input(id='email', type='email', class='validate', name='email', value=user.email)
-                    label(for='email') Email
+                    label(for='email') #{__('form.email')}
               .col.s12.m6
-                h5 Informação Pública
+                h5= __('dashboard.public')
                 .input-field
                   input(value)
 
             .row
               .col.s12.m6
-                button.btn(type='submit') Guardar
+                button.btn(type='submit') #{__('form.save')}
 
           form.section(method='post')
             input(type='hidden', name='action', value='updatePassword')
             .row
               .col.s12.m6
-                h5 Password
+                h5= __('dashboard.password')
                 .section
                   .input-field
                     input(id='password', type='password', name='password')
-                    label(for='password') Nova password
+                    label(for='password') #{__('form.newPassword')}
                   .input-field
                     input(id='password_confirm', type='password', name='password_confirm')
-                    label(for='password_confirm') Confirmar password
+                    label(for='password_confirm') #{__('form.confirmPassword')}
               .col.s12
-                button.btn-flat.waves-effect(type='submit') Mudar Password
+                button.btn-flat.waves-effect(type='submit') #{__('form.change_password')}
         .section.row
 
 

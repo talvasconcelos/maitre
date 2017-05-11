@@ -121,7 +121,7 @@ block content
 				.card-action
 					button(class='btn-flat', type='submit') #{__('restaurant.reserve.reserve')}
 		hr
-		p: a(href='/restaurants') &larr; voltar à lista
+		p: a(href='/restaurants/' + rest.location.state) &larr; voltar à lista
 block js
 	script.
 		$(document).ready(function(){

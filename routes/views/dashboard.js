@@ -22,7 +22,7 @@ exports = module.exports = function (req, res) {
 		.populate('restaurant')
 		.sort('-createdAt')
 		.exec(function(err, result) {
-			if(err) return res.err(err);
+			if(err || !result.lenght) return next(err);
 			async.each(result, function(r, next){
 				r.updateState();
 			}, function(err) {

@@ -19,7 +19,7 @@ Post.add({
 	image: { type: Types.CloudinaryImage },
 	content: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, relative_urls: false, height: 400 },
+		extended: { type: Types.Html, wysiwyg: true, relative_urls: false, convert_urls: false, height: 400 },
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
 });

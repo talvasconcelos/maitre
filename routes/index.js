@@ -19,9 +19,9 @@
  */
 
 var keystone = require('keystone');
+var i18n = require('i18n');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-var i18n = require('i18n');
 //var client = keystone.importer('../app_client/index.html')
 
 // Add-in i18n support

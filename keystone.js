@@ -63,9 +63,10 @@ keystone.set('locals', {
 
 // Configure i18n
 i18n.configure({
-	locales:['en', 'pt', 'fr', 'de'],
+	locales:['pt', 'en', 'de', 'fr'],
 	directory: __dirname + '/locales',
 	objectNotation: true,
+	//updateFiles: false,
 	defaultLocale: 'pt'
 });
 
