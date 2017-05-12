@@ -7,21 +7,35 @@ exports = module.exports = function (req, res) {
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
 
+	moment.locale(locals.locale)
 
-    moment.locale(locals.locale, {
-      calendar: {
-        sameDay: 'DD MMMM',
-        nextDay: 'DD MMMM'
-      }
-    });
-
-    if (locals.locale === 'pt')
-      moment.updateLocale('pt', {
-          calendar : {
-              sameDay : '[Hoje,] DD MMMM',
-              nextDay : '[Amanha,] DD MMMM'
-          }
-      });
+  locals.locale === 'pt' ?
+    moment.updateLocale('pt', {
+        calendar : {
+            sameDay : '[Hoje,] DD MMMM',
+            nextDay : '[Amanha,] DD MMMM'
+        }
+  	})
+		: locals.locale === 'fr' ?
+			moment.updateLocale('fr', {
+					calendar : {
+							sameDay : '[Aujourd’hui,] DD MMMM',
+							nextDay : '[Demain,] DD MMMM'
+					}
+			})
+		: locals.locale === 'de' ?
+			moment.updateLocale('de', {
+					calendar : {
+							sameDay : '[Heute,] DD MMMM',
+							nextDay : '[Morgen,] DD MMMM'
+					}
+			})
+		: moment.updateLocale('en', {
+				calendar : {
+						sameDay : '[Today,] DD MMMM',
+						nextDay : '[Tomorrow,] DD MMMM'
+				}
+		})
 
 	// Set locals
 	locals.dates = {

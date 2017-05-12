@@ -1,81 +1,78 @@
 {
 	"hero": {
-		"line_001": "Find a table ",
-		"line_002": "em ",
-		"button": "Procurar"
+		"line_001": "Find your table ",
+		"line_002": "in ",
+		"button": "Find"
 	},
 	"features": {
-		"title": "Destaques"
+		"title": "Featured"
+	},
+	"cards": {
+		"more": "More"
 	},
 	"how": {
-		"title": "Como funciona",
+		"title": "How it Works",
 		"col_1": {
-			"title": "Escolha um restaurante",
+			"title": "Find a restaurant",
 			"text": "Escolha de entre a nossa lista curada de restaurantes em todo o país."
 		},
 		"col_2": {
-			"title": "Faça uma reserva",
+			"title": "Make a reservation",
 			"text": "Faça a sua reserva escolhendo o dia e hora ou obtenha ajuda do Concierge Digital"
 		},
 		"col_3": {
-			"title": "Pagamento Online",
+			"title": "Online Payment",
 			"text": "Com o Stripe como parceiro, no final da sua refeição tratamos do resto por si, até da conta."
 		},
 		"col_4": {
-			"title": "Tudo num só sítio",
+			"title": "All in one place",
 			"text": "Em vez de procurar o restaurante onde quer ir, depois tentar descobrir onde fica, procurar os contactos para fazer uma reserva... Muitas vezes estas informações estão espalhadas em vários sítios e com informações desactualizadas. Com a aplicação Maître, tem todas as informações num só sítio."
 		},
 		"col_5": {
-			"title": "Lista dos melhores restaurantes",
+			"title": "Curated list of restaurants",
 			"text": "Apresentamos-lhe uma lista cuidada dos melhores restaurantes em cada cidade para que possa escolher. O concierge pode até fazer recomendações baseadas nos seus gostos pessoais. Basta escolher onde, em que dia e a que horas quer marcar uma mesa num restaurante e a aplicação trata do resto, mantendo-o informado sobre o estado das suas reservas."
 		},
 		"col_6": {
-			"title": "Sem constrangimentos",
+			"title": "No awkward moments",
 			"text": "Para muitos, ter que ligar para alguém desconhecido num restaurante a marcar uma mesa pode ser algo embaraçoso. Com a Maître isso acabou. A partir do momento que fizer a sua escolha de restaurante, o concierge entra em contacto com o restaurante e faz a sua marcação. Caso a hora que pretenda não esteja disponível, pode ainda sugerir-lhe um horário disponível ou restaurantes semelhantes."
 		}
 	},
-	"MakeReservation": "Faça a sua reserva",
-	"find": "Procurar",
-	"Restaurants": "Restaurantes",
-	"cards": {
-		"more": "Ver Mais"
-	},
-	"restaurant": {
-		"cuisines": "Cozinha ",
-		"localization": "Localização",
-		"price_for_2": "Preço para 2",
-		"description": "Descrição",
-		"singular": {
-			"chef": "Chef: ",
-			"awards": "Prémios: ",
-			"known": "Recomendado: ",
-			"chef %s": "restaurant.singular.chef %s"
-		},
-		"reserve": {
-			"party": "Quantas Pessoas",
-			"people": {
-				"one": "%s Pessoa",
-				"other": "%s Pessoas"
-			},
-			"date": "Data",
-			"hour": "Horário",
-			"reserve": "Reservar"
-		}
-	},
+	"MakeReservation": "Make your reservation",
+	"find": "Find",
 	"dashboard": {
-		"greet": "Olá %s",
-		"personal": "Informação Pessoal",
-		"public": "Informação Pública",
-		"password": "Password",
+		"greet": "Hello %s",
+		"personal": "Personal Information",
+		"public": "Public Information",
+		"password": "Password"
 	},
 	"form": {
-		"firstName": "Nome",
-		"lastName": "Apelido",
+		"firstName": "First Name",
+		"lastName": "Last Name",
 		"email": "Email",
-		"password": "Password",
-		"newPassword": "Nova Password",
-		"confirmPassword": "Confirmar Password",
-		"save": "Guardar",
-		"change_password": "Mudar Password"
+		"save": "Save",
+		"newPassword": "New Password",
+		"confirmPassword": "Confirma Password",
+		"change_password": "Change Password"
+	},
+	"restaurant": {
+		"cuisines": "Cuisine",
+		"localization": "Location",
+		"price_for_2": "Cost for 2",
+		"description": "Description",
+		"singular": {
+			"chef": "Chef: ",
+			"awards": "Awards: ",
+			"known": "Known for: "
+		},
+		"reserve": {
+			"party": "Party size",
+			"people": {
+				"one": "%s Person",
+				"other": "%s People"
+			},
+			"date": "Date",
+			"hour": "Time",
+			"reserve": "Reserve"
+		}
 	}
 }

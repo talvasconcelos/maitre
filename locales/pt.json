@@ -7,6 +7,9 @@
 	"features": {
 		"title": "Destaques"
 	},
+	"cards": {
+		"more": "Ver Mais"
+	},
 	"how": {
 		"title": "Como funciona",
 		"col_1": {
@@ -36,20 +39,30 @@
 	},
 	"MakeReservation": "Faça a sua reserva",
 	"find": "Procurar",
-	"Restaurants": "Restaurantes",
-	"cards": {
-		"more": "Ver Mais"
+	"dashboard": {
+		"greet": "Olá %s",
+		"personal": "Informação Pessoal",
+		"public": "Informação Pública",
+		"password": "Password"
+	},
+	"form": {
+		"firstName": "Nome",
+		"lastName": "Apelido",
+		"email": "Email",
+		"save": "Guardar",
+		"newPassword": "Nova Password",
+		"confirmPassword": "Confirmar Password",
+		"change_password": "Alterar Password"
 	},
 	"restaurant": {
-		"cuisines": "Cozinha ",
+		"cuisines": "Cozinha",
 		"localization": "Localização",
 		"price_for_2": "Preço para 2",
 		"description": "Descrição",
 		"singular": {
 			"chef": "Chef: ",
 			"awards": "Prémios: ",
-			"known": "Recomendado: ",
-			"chef %s": "restaurant.singular.chef %s"
+			"known": "Recomendado: "
 		},
 		"reserve": {
 			"party": "Quantas Pessoas",
@@ -61,21 +74,5 @@
 			"hour": "Horário",
 			"reserve": "Reservar"
 		}
-	},
-	"dashboard": {
-		"greet": "Olá %s",
-		"personal": "Informação Pessoal",
-		"public": "Informação Pública",
-		"password": "Password",
-	},
-	"form": {
-		"firstName": "Nome",
-		"lastName": "Apelido",
-		"email": "Email",
-		"password": "Password",
-		"newPassword": "Nova Password",
-		"confirmPassword": "Confirmar Password",
-		"save": "Guardar",
-		"change_password": "Mudar Password"
 	}
 }
