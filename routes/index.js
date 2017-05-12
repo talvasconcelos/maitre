@@ -26,11 +26,10 @@ var importRoutes = keystone.importer(__dirname);
 
 // Add-in i18n support
 keystone.pre('routes', i18n.init);
-console.log('Locale is: ', i18n.getLocale())
+keystone.pre('routes', middleware.detectLang);
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
-//keystone.pre('routes', middleware.reactClient);
 keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
@@ -53,6 +52,8 @@ exports = module.exports = function (app) {
 			next();
 		});
 	}
+
+	app.get('/:lang', middleware.detectLang, routes.views.lang);
 
 	// Views
 	app.get('/', routes.views.index);

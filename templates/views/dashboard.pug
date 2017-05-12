@@ -6,7 +6,6 @@ block content
     .dashboard.container
         .section#perfil
           h4= __('dashboard.greet', user.name.full)
-          p #{locale}
           form.section(method='post')
             input(type='hidden', name='action', value='update')
             .row
@@ -52,7 +51,7 @@ block content
 
 
         #reserves
-            h4 As suas reservas
+            h4= __('reservations.title:As suas reservas')
             if data.reserv
                 ul.collapsible.popout(data-collapsible="accordion")
                     each r in data.reserv
@@ -63,7 +62,7 @@ block content
                                 .right
                                     case r.state
                                         when 'null'
-                                            i(class='material-icons red-text tooltipped', data-position='left', data-tooltip='Erro') error
+                                            i(class='material-icons red-text tooltipped', data-position='left', data-tooltip= 'Erro') error
                                         when 'sent'
                                               i(class='material-icons tooltipped', data-position='left', data-tooltip='Enviada') call_made
                                         when 'confirmed'

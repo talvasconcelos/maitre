@@ -66,6 +66,7 @@ i18n.configure({
 	locales:['en', 'pt', 'de', 'fr'],
 	directory: __dirname + '/locales',
 	objectNotation: true,
+	cookie: 'language',
 	defaultLocale: 'pt'
 });
 

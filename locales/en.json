@@ -74,5 +74,8 @@
 			"hour": "Time",
 			"reserve": "Reserve"
 		}
+	},
+	"reservations": {
+		"title": "Your reserves"
 	}
 }

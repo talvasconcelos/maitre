@@ -30,6 +30,25 @@ exports.initLocals = function (req, res, next) {
 	next();
 };
 
+exports.detectLang = function(req, res, next) {
+    //var match = req.url.match(/^\/(de|en)([\/\?].*)?$/i);
+
+		res.setLocale('pt')
+
+    // if (match) {
+    //     req.setLocale(match[1]);
+    //     // Make locale available in template
+    //     // (necessary until i18n 0.6.x)
+    //     res.locals.locale = req.getLocale();
+    //     // reset the URL for routing
+    //     req.url = match[2] || '/';
+    // } (else) {
+    //     // Here you can redirect to default locale if you want
+    // }
+
+    next();
+}
+
 
 /**
 	Fetches and clears the flashMessages before a view is rendered
@@ -57,6 +76,7 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
+
 
 exports.reactClient = function(req, res) {
 	res.sendFile(path.resolve('app_client/index.html'));
