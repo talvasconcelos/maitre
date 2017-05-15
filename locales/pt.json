@@ -50,9 +50,16 @@
 		"lastName": "Apelido",
 		"email": "Email",
 		"save": "Guardar",
+		"password": "Password",
 		"newPassword": "Nova Password",
 		"confirmPassword": "Confirmar Password",
-		"change_password": "Alterar Password"
+		"change_password": "Alterar Password",
+		"forgot_password": "Esqueci-me da Password",
+		"register": "Registar",
+		"have_account": "Já tem conta? ",
+		"no_account": "Não tem conta? ",
+		"join_title": "Juntar-se à Maître",
+		"signin_title": "Entrar"
 	},
 	"restaurant": {
 		"cuisines": "Cozinha",
@@ -77,5 +84,31 @@
 	},
 	"reservations": {
 		"title": "As suas reservas"
+	},
+	"nav": {
+		"blog": "Blog",
+		"contact": "Contactar",
+		"login": "Entrar",
+		"logout": "Sair",
+		"dashboard": "Painel",
+		"profile": "Perfil",
+		"reserves": "Reservas",
+		"restaurants": "Restaurantes"
+	},
+	"errors": {
+		"404_title": "Oops! (404)",
+		"404_msg": "Parece que essa página não existe. Não há nada aqui.",
+		"back_home": "Voltar",
+		"500_title": "Erro! (500)",
+		"500_msg": "Pedimos desculpa, o servidor encontrou um erro.<br>Tente novamente mais tarde ou contacte-nos se o problema persistir"
+	},
+	"og": {
+		"index": {
+			"title": "Maître, escolha a sua mesa.",
+			"description": "Com a Maître, escolhe e reserva uma mesa num dos nossos restaurantes parceiros. O concierge trata do resto por si!"
+		},
+		"restaurant": {
+			"description": "Reservar Online com a Maître"
+		}
 	}
 }

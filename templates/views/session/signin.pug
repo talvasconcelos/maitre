@@ -6,8 +6,10 @@ block content
 	.container
 		.card.card-center
 			.card-content
-				span.card-title Entrar
-				.section.container
+				.logo
+					img.responsive-img(src='http://res.cloudinary.com/duteihi26/image/upload/v1493291914/maitre_klgfe7.png')
+				span.card-title #{__('form.signin_title')}
+				.section
 					form(method='post', action='/signin')
 						input(type='hidden', name='action', value='signin')
 						input(type='hidden', name='target', value=form.target)
@@ -19,36 +21,23 @@ block content
 						.row
 							.col.s12.input-field
 								input(id='email', type='email', class='validate', name='email', value=locals.form ? locals.form.email : null)
-								label(for='email') Email
+								label(for='email') #{__('form.email')}
 							.col.s12.input-field
 								input(id='password', type='password', class='validate', name='password', value='')
-								label(for='password') Password
+								label(for='password') #{__('form.password')}
 
 						.section.row
 							.col.s12
 								+flash-messages(messages)
 							.col.s12
-								button.btn(type='submit') Entrar
+								button.btn(type='submit') #{__('nav.login')}
 						.divider
 						.row
 								.col.m6
 									.section: small
-										|Não tem conta?&nbsp
-										a(href='/join') Registar
+										| #{__('form.no_account')}
+										a(href='/join') #{__('form.register')}
 
-								//-.col.m6.right-align
+								.col.m6.right-align
 									.section: small
-										a(href='/forgot-password') Esqueci-me da password
-
-	//-.container-xs
-		.page-intro
-			h4 Entrar
-			+flash-messages(messages)
-		.page-content
-			+auth-forms({ modal: true, initial: 'signin' })
-
-//-block js
-	script.
-		jQuery(function($) {
-			$('.auth-form').find('.form-control').eq(0).focus().select();
-		});
+										a(href='/forgot-password') #{__('form.forgot_password')}

@@ -1,6 +1,12 @@
 extends ../../layouts/default
 
 block content
-	.container
-		h1 404
-		p.lead Sorry, the page you requested can't be found.
+	.error.not-found
+	.msg
+		div
+			h1= errorTitle || __('errors.404_title')
+			if 'object' == typeof errorMsg
+				p!= errorMsg
+			else
+				p.flow-text!= utils.textToHTML(errorMsg) || __('errors.404_msg')
+			a.btn(href='/')= __('errors.back_home')

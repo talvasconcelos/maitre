@@ -1,6 +1,17 @@
 extends ../../layouts/default
 
 block content
-	.container
-		h1 Error (500)
-		p.lead Sorry, the site has encountered an error.
+	.error.server-error
+	.msg
+		.dark-bg.white-text
+			h1!=errorTitle || __('errors.500_title')
+			if 'object' == typeof errorMsg
+				p!= errorMsg
+			else
+				p!= utils.textToHTML(errorMsg) || __('errors.500_msg')				
+			a.btn(href='/')= __('errors.back_home')
+			if err
+				hr
+				h3 Error Details
+				p!= utils.textToHTML(err)
+			

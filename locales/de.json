@@ -1,1 +1,42 @@
-{}
+{
+	"hero": {
+		"line_001": "hero.line_001",
+		"line_002": "hero.line_002",
+		"button": "hero.button"
+	},
+	"features": {
+		"title": "features.title"
+	},
+	"cards": {
+		"more": "cards.more"
+	},
+	"how": {
+		"title": "how.title",
+		"col_1": {
+			"title": "how.col_1.title",
+			"text": "how.col_1.text"
+		},
+		"col_2": {
+			"title": "how.col_2.title",
+			"text": "how.col_2.text"
+		},
+		"col_3": {
+			"title": "how.col_3.title",
+			"text": "how.col_3.text"
+		},
+		"col_4": {
+			"title": "how.col_4.title",
+			"text": "how.col_4.text"
+		},
+		"col_5": {
+			"title": "how.col_5.title",
+			"text": "how.col_5.text"
+		},
+		"col_6": {
+			"title": "how.col_6.title",
+			"text": "how.col_6.text"
+		}
+	},
+	"MakeReservation": "MakeReservation",
+	"find": "find"
+}

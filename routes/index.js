@@ -26,11 +26,30 @@ var importRoutes = keystone.importer(__dirname);
 
 // Add-in i18n support
 keystone.pre('routes', i18n.init);
-keystone.pre('routes', middleware.detectLang);
 
 // Common Middleware
+keystone.pre('routes', middleware.initErrorHandlers);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
+
+// Handle 404 erros
+keystone.set('404', function (req, res, next) {
+	res.notfound()
+})
+
+// Handle other errors
+keystone.set('500', function (err, req, res, next) {
+	var title, message;
+	if (err instanceof Error) {
+		message = err.message;
+		err = err.stack;
+	}
+	res.status(500).render('errors/500', {
+		err: err,
+		errorTitle: title,
+		errorMsg: message
+	});
+});
 
 // Import Route Controllers
 var routes = {
@@ -53,7 +72,7 @@ exports = module.exports = function (app) {
 		});
 	}
 
-	app.get('/:lang', middleware.detectLang, routes.views.lang);
+	app.get('/language/:lang', routes.views.lang);
 
 	// Views
 	app.get('/', routes.views.index);

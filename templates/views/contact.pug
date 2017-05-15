@@ -4,6 +4,8 @@ block content
 	.container
 		.card.card-center
 			.card-content
+				.logo
+					img.responsive-img(src='http://res.cloudinary.com/duteihi26/image/upload/v1493291914/maitre_klgfe7.png')
 				if enquirySubmitted
 					span.card-title Obrigado pelo seu contacto.
 				else
@@ -14,10 +16,11 @@ block content
 							.row
 								.col.s12.input-field
 									input(id='name', type='text', class='validate', name='name.full', value=formData['name.full'])
-									label(for='name.full') Nome
+									label(for='name.full') #{__('form.firstName')}
 								.col.s12.input-field
 									input(id='email', type='email', class='validate', name='email', value=formData.email)
-									label(for='email') Email
+									label(for='email') #{__('form.email')}
+								.clearfix
 								.col.s12.input-field
 									select(name='enquiryType')
 										option(value='', disabled, selected) Escolha um

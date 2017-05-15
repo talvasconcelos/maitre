@@ -1,10 +1,10 @@
 mixin nav-bar-links
     each link in navLinks
-        li: a(class!=attributes.class href=link.href)= link.label
+        li: a(class!=attributes.class href=link.href)= __(link.label)
     if user
         if user.canAccessKeystone
           li: a(class!=attributes.class href='/keystone') Admin         
-        li: a(class!=attributes.class href='/dashboard') Painel
-        li: a(class!=attributes.class href='/signout') Log Out
+        li: a(class!=attributes.class href='/dashboard') #{__('nav.dashboard')}
+        li: a(class!=attributes.class href='/signout') #{__('nav.logout')}
     if !user
-        li: a(class!=attributes.class href='/signin') Log In
+        li: a(class!=attributes.class href='/signin') #{__('nav.login')}

@@ -6198,50 +6198,6 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   .picker--time .picker__box {
     margin-bottom: 5em; } }
 
-#PopupSignupForm_3 {
-  z-index: 1001; }
-
-.may1reboot-overlay {
-  position: fixed;
-  z-index: 999;
-  overflow-x: hidden;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  background: #1d083b; }
-  .may1reboot-overlay .pitch {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-    margin: 15% auto;
-    height: 50%;
-    color: #f5f5f5;
-    text-transform: uppercase;
-    text-align: center; }
-    .may1reboot-overlay .pitch h1 {
-      position: relative;
-      font-weight: 900; }
-    .may1reboot-overlay .pitch span {
-      color: tomato; }
-    .may1reboot-overlay .pitch h4 {
-      font-size: calc(125% + 0.5vw); }
-    .may1reboot-overlay .pitch .cta {
-      background: tomato;
-      margin: 2em 0 0.75em; }
-
-#countdown {
-  margin-top: 1em; }
-  #countdown .wrapper {
-    color: #f5f5f5;
-    display: inline-block; }
-    #countdown .wrapper:not(:last-child) {
-      margin-right: 1em; }
-    #countdown .wrapper span {
-      display: block;
-      color: inherit;
-      font-size: calc(125% + 0.5vw); }
-
 .btn-flat {
   padding: 0; }
 
@@ -6422,6 +6378,11 @@ article {
       min-width: 350px;
       margin-top: 4em; } }
 
+.logo {
+  display: block;
+  width: 50%;
+  margin: 2em auto; }
+
 .card-flash {
   margin-bottom: 2em; }
 
@@ -6450,6 +6411,33 @@ article .card-image {
 
 footer.page-footer {
   margin-top: 0; }
+  footer.page-footer .lang a {
+    color: inherit; }
+  footer.page-footer .lang span {
+    margin: 0 0.5em; }
+
+.error {
+  position: relative;
+  height: 100vh;
+  width: 100%; }
+  .error.not-found {
+    background-image: url("/images/error/maitre-error-404.jpg");
+    background-position: bottom;
+    background-size: cover; }
+  .error.server-error {
+    background-image: url("/images/error/maitre-error-500.jpg");
+    background-position: center;
+    background-size: cover; }
+
+.msg {
+  position: absolute;
+  top: 25%;
+  right: 0;
+  padding: 2em;
+  display: flex;
+  justify-content: flex-start; }
+  .msg .dark-bg {
+    background: rgba(0, 0, 0, 0.5); }
 
 .animated {
   animation-duration: 0.5s;

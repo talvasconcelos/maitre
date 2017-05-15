@@ -22,32 +22,34 @@ var keystone = require('keystone');
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		//{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Blog', key: 'blog', href: '/blog' },
+		{ label: 'nav.blog', key: 'blog', href: '/blog' },
 		//{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contactos', key: 'contact', href: '/contact' },
+		{ label: 'nav.contact', key: 'contact', href: '/contact' },
 	];
 	res.locals.user = req.user;
 	next();
 };
 
-exports.detectLang = function(req, res, next) {
-    //var match = req.url.match(/^\/(de|en)([\/\?].*)?$/i);
+/**
+	Inits the error handler functions into `req`
+*/
 
-		res.setLocale('pt')
-
-    // if (match) {
-    //     req.setLocale(match[1]);
-    //     // Make locale available in template
-    //     // (necessary until i18n 0.6.x)
-    //     res.locals.locale = req.getLocale();
-    //     // reset the URL for routing
-    //     req.url = match[2] || '/';
-    // } (else) {
-    //     // Here you can redirect to default locale if you want
-    // }
-
-    next();
-}
+exports.initErrorHandlers = function(req, res, next) {
+	res.err = function(err, title, message) {
+		res.status(500).render('errors/500', {
+			err: err,
+			errorTitle: title,
+			errorMsg: message
+		});
+	}
+	res.notfound = function(title, message) {
+		res.status(404).render('errors/404', {
+			errorTitle: title,
+			errorMsg: message
+		});
+	}
+	next();
+};
 
 
 /**

@@ -14,27 +14,27 @@
 		"title": "How it Works",
 		"col_1": {
 			"title": "Find a restaurant",
-			"text": "Escolha de entre a nossa lista curada de restaurantes em todo o país."
+			"text": "Choose a restaurant from our curated list"
 		},
 		"col_2": {
 			"title": "Make a reservation",
-			"text": "Faça a sua reserva escolhendo o dia e hora ou obtenha ajuda do Concierge Digital"
+			"text": "Book your reservation on the day and hour, and the Concierge takes care of the rest"
 		},
 		"col_3": {
 			"title": "Online Payment",
-			"text": "Com o Stripe como parceiro, no final da sua refeição tratamos do resto por si, até da conta."
+			"text": "With Stripe, you can even let the Concierge pay your dinner"
 		},
 		"col_4": {
 			"title": "All in one place",
-			"text": "Em vez de procurar o restaurante onde quer ir, depois tentar descobrir onde fica, procurar os contactos para fazer uma reserva... Muitas vezes estas informações estão espalhadas em vários sítios e com informações desactualizadas. Com a aplicação Maître, tem todas as informações num só sítio."
+			"text": "With Maître you have all the information you need in one place. Search for a restaurant, read about it, book a reservation and get notified."
 		},
 		"col_5": {
 			"title": "Curated list of restaurants",
-			"text": "Apresentamos-lhe uma lista cuidada dos melhores restaurantes em cada cidade para que possa escolher. O concierge pode até fazer recomendações baseadas nos seus gostos pessoais. Basta escolher onde, em que dia e a que horas quer marcar uma mesa num restaurante e a aplicação trata do resto, mantendo-o informado sobre o estado das suas reservas."
+			"text": "We give you a curated list of the best restaurants in town. The Concierge can even make some recommendations."
 		},
 		"col_6": {
 			"title": "No awkward moments",
-			"text": "Para muitos, ter que ligar para alguém desconhecido num restaurante a marcar uma mesa pode ser algo embaraçoso. Com a Maître isso acabou. A partir do momento que fizer a sua escolha de restaurante, o concierge entra em contacto com o restaurante e faz a sua marcação. Caso a hora que pretenda não esteja disponível, pode ainda sugerir-lhe um horário disponível ou restaurantes semelhantes."
+			"text": "The concierge makes it easy for you to book a reservation. You just need to choose online and we contact the restaurant and keep you updated on the status of your reservation."
 		}
 	},
 	"MakeReservation": "Make your reservation",
@@ -46,13 +46,20 @@
 		"password": "Password"
 	},
 	"form": {
-		"firstName": "First Name",
+		"firstName": "Name",
 		"lastName": "Last Name",
 		"email": "Email",
 		"save": "Save",
+		"password": "Password",
 		"newPassword": "New Password",
-		"confirmPassword": "Confirma Password",
-		"change_password": "Change Password"
+		"confirmPassword": "Confirm Password",
+		"change_password": "Change Password",
+		"forgot_password": "Forgot Password",
+		"register": "Register",
+		"have_account": "Have an account? ",
+		"no_account": "No account? ",
+		"join_title": "Join Maître",
+		"signin_title": "Sign in"
 	},
 	"restaurant": {
 		"cuisines": "Cuisine",
@@ -77,5 +84,29 @@
 	},
 	"reservations": {
 		"title": "Your reserves"
+	},
+	"nav": {
+		"blog": "Blog",
+		"contact": "Contacts",
+		"login": "Log In",
+		"logout": "Log Out",
+		"dashboard": "Dashboard",
+		"profile": "Profile",
+		"reserves": "Reservations",
+		"restaurants": "Restaurants"
+	},
+	"errors": {
+		"404_title": "Oops! (404)",
+		"404_msg": "Sorry, the page you requested can't be found.",
+		"back_home": "Voltar",
+		"500_title": "Error! (500)",
+		"500_msg": "Sorry, the server encountered an error.<br><br>Please try again shortly, or contact us if the problem continues."
+	},
+	"og": {
+		"index": {
+			"title": "Maître, find your table.",
+			"description": "Book reservations and discover the best restaurants in town."
+		},
+		"restaurant": "Book a table"
 	}
 }

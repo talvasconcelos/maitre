@@ -2,13 +2,14 @@ extends ../../layouts/default
 
 block flash-messages
 	//- intentionally blank
-
 block content
 	.container
 		.card.card-center
 			.card-content
-				span.card-title Juntar-se à Maître
-				.section.container
+				.logo
+					img.responsive-img(src='http://res.cloudinary.com/duteihi26/image/upload/v1493291914/maitre_klgfe7.png')
+				span.card-title #{__('form.join_title')}
+				.section
 					form(method='post', action='/join')
 						input(type='hidden', name='action', value='join')
 						input(type='hidden', name='target', value=form.target)
@@ -20,30 +21,26 @@ block content
 						.row
 							.col.s12.input-field
 								input(id='firstname', type='text', class='validate', name='firstname', value=form.firstname)
-								label(for='firstname') Nome
+								label(for='firstname') #{__('form.firstName')}
 							.col.s12.input-field
 								input(id='lastname', type='text', class='validate', name='lastname', value=form.lastname)
-								label(for='lastname') Apelido
+								label(for='lastname') #{__('form.lastName')}
+							.clearfix
 							.col.s12.input-field
 								input(id='email', type='email', class='validate', name='email', value=form.email)
-								label(for='email') Email
+								label(for='email') #{__('form.email')}
 							.col.s12.input-field
 								input(id='password', type='password', class='validate', name='password', value=form.password)
-								label(for='password') Password
+								label(for='password') #{__('form.password')}
 
 						.section.row
 							.col.s12
 								+flash-messages(messages)
 							.col.s12
-								button.btn(type='submit') Registar
+								button.btn(type='submit') #{__('form.register')}
 						.divider
 						.row
 							.col.m6
 								.section: small
-									| Já tem conta?&nbsp
-									a(href='/signin') Login
-
-
-//-block js
-	script.
-		$('#modal-flash').modal('open');
+									| #{__('form.have_account')}
+									a(href='/signin') #{__('nav.login')}

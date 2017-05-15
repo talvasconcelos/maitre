@@ -30,15 +30,15 @@ keystone.init({
 	'auth': true,
 	'user model': 'User',
 
-	/*'port': process.env.PORT || 3000,
-	'ssl port': process.env.SSLPORT || 8001,
+	//'port': process.env.PORT || 3000,
+	//'ssl port': process.env.SSLPORT || 8001,
 	ssl: 'force',
 	letsencrypt: (process.env.NODE_ENV === 'production') && {
 		email: 'geral@glowingturtle.pt',
 		domains: ['beta.maitre.pt', 'www.maitre.pt', 'maitre.pt'],
 		register: true,
 		tos: true
-	}*/
+	}
 
 });
 
@@ -66,7 +66,7 @@ i18n.configure({
 	locales:['en', 'pt', 'de', 'fr'],
 	directory: __dirname + '/locales',
 	objectNotation: true,
-	cookie: 'language',
+	cookie: 'maitrelang',
 	defaultLocale: 'pt'
 });
 
