@@ -32,13 +32,13 @@ keystone.init({
 
 	//'port': process.env.PORT || 3000,
 	//'ssl port': process.env.SSLPORT || 8001,
-	ssl: 'force',
-	letsencrypt: (process.env.NODE_ENV === 'production') && {
-		email: 'geral@glowingturtle.pt',
-		domains: ['beta.maitre.pt', 'www.maitre.pt', 'maitre.pt'],
-		register: true,
-		tos: true
-	}
+	// ssl: 'force',
+	// letsencrypt: (process.env.NODE_ENV === 'production') && {
+	// 	email: 'geral@glowingturtle.pt',
+	// 	domains: ['beta.maitre.pt', 'www.maitre.pt', 'maitre.pt'],
+	// 	register: true,
+	// 	tos: true
+	// }
 
 });
 
